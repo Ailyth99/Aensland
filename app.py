@@ -16,13 +16,13 @@ class_labels = {0: '炭黑组', 1: '正常发挥', 2: '炫彩组', 3: '糊糊组
 predicted_class=''
 #Set up the Gemini model and API key
 #https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini?hl=zh-cn
-MY_KEY= os.environ.get("GOOGLE_API_KEY")
+MY_KEY= st.secrets["MY_KEY"]
 genai.configure(api_key=MY_KEY)
 gemini_model = genai.GenerativeModel('gemini-pro-vision')
-neutral=os.environ.get("sys_info_0")
-toxic=os.environ.get("sys_info_1")
-heartfelt=os.environ.get("sys_info_2")
-chilly_list=os.environ.get("X").split(",")
+neutral=st.secrets["SYS_INFO_0"]
+toxic=st.secrets["SYS_INFO_1"]
+heartfelt=st.secrets["SYS_INFO_2"]
+chilly_list=st.secrets["X"].split(",")
 default_prompt=''
 
 generation_config = {
