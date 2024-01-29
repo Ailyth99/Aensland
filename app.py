@@ -92,7 +92,6 @@ def img_score(img_raw_path):
     score={k: round(v * 100, 2) for k, v in class_probabilities.items()}
     high_score_float=predictions[0,(predicted_class_index[0])]
     high_score=round(high_score_float*100,2)
-    #print(f'已调用img_score，predicted_class={predicted_class},score={score},high_score={high_score}')
     return score,high_score
 
 def review_waiting(_class, critic_name):
@@ -114,7 +113,6 @@ def gemini_bot(default_prompt,img_raw_path,_class):
     model = gemini_model
     klass="当前食物类型是："+_class
     prompt=klass+default_prompt
-    print(prompt[:50])
     response = model.generate_content([prompt, img],
     stream=False,
     safety_settings=safety_settings,
@@ -166,7 +164,7 @@ if my_image:
 
 review_style= st.radio(
 "请选择点评文字风格",
-["默认", "毒舌👾", "暖心💖"],
+["默认", "毒舌👾", "暖心🍀"],
     index=0, horizontal=True
 )
 default_prompt, critic_name, avatar=get_critic_info(review_style)
