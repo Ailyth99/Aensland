@@ -73,7 +73,7 @@ def get_critic_info(review_style):
         default_prompt = toxic
         critic_name = 'SpicyCritique'
         avatar = '😈'
-    elif review_style == '暖心💖':
+    elif review_style == '暖心🍀':
         default_prompt = heartfelt
         critic_name = 'GentleGourmet'
         avatar = '🤗'
@@ -94,19 +94,27 @@ def img_score(img_raw_path):
     high_score=round(high_score_float*100,2)
     return score,high_score
 
+def score_desc(score):
+    if score > 90:
+        return "这妥妥的属于"
+    elif score >= 70 and score <= 90:
+        return "这大概率属于"
+    elif score >= 40 and score <= 70:
+        return "这可能属于"
+    else:
+        return "我猜这属于"
+
+
 def review_waiting(_class, critic_name):
     if _class == '非食物':
-        words = '图里面好像没有食物吧❓'
+        return  '图里面好像没有食物吧❓'
     elif critic_name == 'SavorBalancer':
-        words='🍴品尝中，正在构思点评'
+        return '🍴品尝中，正在构思点评'
     elif critic_name == 'SpicyCritique':
-        words='不要催啦，我这不正在吃吗💢'
+         return '不要催啦，我这不正在吃吗💢'
     elif critic_name == 'GentleGourmet':
-        words='正在为你种彩虹🌈'
-    else:
-        raise ValueError("Invalid value for `_class` or `critic_name`")
-
-    return words
+        return '正在为你种彩虹🌈'
+    
 
 def gemini_bot(default_prompt,img_raw_path,_class):
     img = PIL.Image.open(img_raw_path)
@@ -131,18 +139,60 @@ def review():
                 st.write(final_response)
                 st.button("再次点评", key="1")
             print(f"{datetime.now(UTC_8).strftime('%m-%d %H:%M:%S')}--Complete\n💣💣💣")
-            st.info('点评完毕', icon="🆗")
-
+            info('#bff0f3','#78817a','🆗点评完毕，内容有AI生成，仅供娱乐',55)
+          
+def info(bg_color,font_color,text,height):
+    html=f'''<html><style>
+body {{
+   margin: 0;
+   padding: 0;
+   color: #3b4740;
+   background-color: transparent;
+}}
+.container {{
+   max-width: 100%;
+   margin: 0 auto;
+   padding: 20px;
+   font-size: 15px;
+   color:{font_color}
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: #f8e9a000;
+   padding: 15px;
+   border-radius: 10px;
+   line-height: 1.6; 
+   border: #fde2e4 0px solid;
+   background-color:{bg_color} ;
+}}
+</style><body><div class="container">
+    {text}
+</body></html>'''    
+    components.html(html,height=height)
             
 #Streamlit UI
-#guide: https://docs.streamlit.io/library/api-reference
-            
-st.markdown("# :rainbow[🧨Zhazu Classification]")
+#Guide: https://docs.streamlit.io/library/api-reference
+
+st.header("🧨ZhazuEvaluator")
 st.subheader('', divider='rainbow')
 
-
 # Upload an image
-img_raw_path = st.file_uploader("✨来上传一张你的得意之作", type=['png', 'jpg', 'jpeg','webp'])
+bg_color='#e1f6d0'
+border_font_color='#78817a'
+css=f'''<style>
+[data-testid="stFileUploadDropzone"]{{background-color:{bg_color};color:{border_font_color}}}
+[data-testid="baseButton-secondary"]{{background-color:{bg_color};border:1px {border_font_color} solid;color:{border_font_color}}}
+[data-testid="baseButton-secondary"]>div[data-testid="stMarkdownContainer"] {{border: none;}}
+div[data-testid="stFileDropzoneInstructions"]>div>span::after {{
+       content:"✨来上传一张你的得意之作，PC可直接拖放上传";
+       visibility:visible;
+       display:block;
+    }}
+
+</style>'''
+st.markdown(css,unsafe_allow_html=True)
+
+img_raw_path = st.file_uploader("", type=['png', 'jpg', 'jpeg','webp'])
 
 col1, col2 = st.columns(2)
 my_image = ""
@@ -159,9 +209,10 @@ if my_image:
         print(f"{datetime.now(UTC_8).strftime('%m-%d %H:%M:%S')}--Start  Classification")
         score,high_score=img_score(img_raw_path)
         with col2:
-                st.bar_chart(score, color='#97fbf7',width=412)
-        st.info(f"这可能属于{predicted_class}➡️得分：{high_score}",icon="🙆")
-
+            st.bar_chart(score, color='#fdd3de',width=412)
+        score_noti=f"📝{score_desc(high_score)}{predicted_class}➡️得分：{high_score}"
+        info('#bff0f3','#78817a',score_noti,55)
+        
 review_style= st.radio(
 "请选择点评文字风格",
 ["默认", "毒舌👾", "暖心🍀"],
@@ -173,9 +224,13 @@ default_prompt, critic_name, avatar=get_critic_info(review_style)
 if my_image:
     review()
     
-st.warning('''
-注意事项\n
-1.上传的图片不一定会被服务器接受，可能出现点评完全和图片无关的情况，特别是非食物图片\n
-2.如果AI开始说车轱辘话，不断重复某个句式，请重新点评。\n
-3.毒舌点评可能会出现轻微冒犯用语，请不要放在心上。\n
-''')
+announcements='''注意事项<br>
+1.上传的图片不一定会被服务器接受，可能出现点评完全和图片无关的情况，特别是非食物图片<br>
+2.如果AI开始说车轱辘话，不断重复某个句式，请重新点评。<br>
+3.毒舌点评可能会出现轻微冒犯用语，请不要放在心上。
+'''
+info('#fcedf1','#04deda',announcements,145)
+left_blank, centre,last_blank = st.columns([3.4,2,3])
+with centre:
+    st.image("https://visitor-badge.laobi.icu/badge?page_id=Ailyth/z2024&left_text=MyDearVisitors&left_color=pink&right_color=Paleturquoise")
+
