@@ -16,7 +16,7 @@ class_labels = {0: '炭黑组', 1: '正常发挥', 2: '炫彩组', 3: '糊糊组
 predicted_class=''
 #Set up the Gemini model and API key
 #https://cloud.google.com/vertex-ai/docs/generative-ai/model-reference/gemini?hl=zh-cn
-MY_KEY= st.secrets["MY_KEY"]
+MY_KEY= st.secrets["MY_API"]
 genai.configure(api_key=MY_KEY)
 gemini_model = genai.GenerativeModel('gemini-pro-vision')
 neutral=st.secrets["SYS_INFO_0"]
