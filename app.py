@@ -10,7 +10,7 @@ from tensorflow.keras.preprocessing import image
 
 UTC_8 = pytz.timezone('Asia/Shanghai')
 #Load the model 
-my_model = load_model("model/zha2024_5-83.38.h5")
+my_model = load_model("model/zha2024_6.h5")
 target_size = (300, 300)
 class_labels = {0: '炭黑组', 1: '正常发挥', 2: '炫彩组', 3: '糊糊组', 4: '炸组日常', 5: '凡尔赛',6: '非食物'}
 predicted_class=''
@@ -139,7 +139,7 @@ def review():
                 st.write(final_response)
                 st.button("再次点评", key="1")
             print(f"{datetime.now(UTC_8).strftime('%m-%d %H:%M:%S')}--Complete\n💣💣💣")
-            info('#bff0f3','#78817a','🆗点评完毕，内容有AI生成，仅供娱乐',55)
+            info('#edfde2','#78817a','🆗点评完毕，内容有AI生成，仅供娱乐',55)
           
 def info(bg_color,font_color,text,height):
     html=f'''<html><style>
@@ -172,12 +172,12 @@ body {{
             
 #Streamlit UI
 #Guide: https://docs.streamlit.io/library/api-reference
-
-st.header("🧨ZhazuEvaluator")
-st.subheader('', divider='rainbow')
-
+#st.header("🧨ZhazuEvaluator")
+#st.subheader('', divider='rainbow')
+st.image('https://huggingface.co/spaces/Ailyth/stream_zhazu/resolve/main/model/banner.png')
+    
 # Upload an image
-bg_color='#e1f6d0'
+bg_color='#e1f1fa'
 border_font_color='#78817a'
 css=f'''<style>
 [data-testid="stFileUploadDropzone"]{{background-color:{bg_color};color:{border_font_color}}}
@@ -211,7 +211,7 @@ if my_image:
         with col2:
             st.bar_chart(score, color='#fdd3de',width=412)
         score_noti=f"📝{score_desc(high_score)}{predicted_class}➡️得分：{high_score}"
-        info('#bff0f3','#78817a',score_noti,55)
+        info('#edfde2','#78817a',score_noti,55)
         
 review_style= st.radio(
 "请选择点评文字风格",
@@ -224,12 +224,12 @@ default_prompt, critic_name, avatar=get_critic_info(review_style)
 if my_image:
     review()
     
-announcements='''注意事项<br>
-1.上传的图片不一定会被服务器接受，可能出现点评完全和图片无关的情况，特别是非食物图片<br>
-2.如果AI开始说车轱辘话，不断重复某个句式，请重新点评。<br>
+announcements='''注意事项\n
+1.上传的图片有一定概率不会被识别，可能出现点评完全和图片无关的情况，特别是非食物图片\n
+2.如果AI开始说车轱辘话，不断重复某个句式，内容也相关性不大,请重新点评。\n
 3.毒舌点评可能会出现轻微冒犯用语，请不要放在心上。
 '''
-info('#fcedf1','#04deda',announcements,145)
+st.warning(announcements)
 left_blank, centre,last_blank = st.columns([3.4,2,3])
 with centre:
     st.image("https://visitor-badge.laobi.icu/badge?page_id=Ailyth/z2024&left_text=MyDearVisitors&left_color=pink&right_color=Paleturquoise")
