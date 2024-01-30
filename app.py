@@ -174,7 +174,7 @@ body {{
 #Guide: https://docs.streamlit.io/library/api-reference
 #st.header("🧨ZhazuEvaluator")
 #st.subheader('', divider='rainbow')
-st.image('https://huggingface.co/spaces/Ailyth/stream_zhazu/resolve/main/model/banner.png')
+st.image('https://cdnjson.com/images/2024/01/30/banner7f1835c564c9b79c.png')
     
 # Upload an image
 bg_color='#e1f1fa'
