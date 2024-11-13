@@ -102,5 +102,5 @@ theme: cactus
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/Ailyth99/ailyth99.github.io
+  repo: https://github.com/Ailyth99/Aensland
   branch: makai
