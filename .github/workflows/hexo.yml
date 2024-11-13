@@ -25,11 +25,18 @@ jobs:
           npm install hexo-cli -g
           npm install
           
+      - name: Check Theme
+        run: |
+          ls -la themes/cactus/
+          echo "Theme files:"
+          find themes/cactus/ -type f
+          
       - name: Build
         run: |
           hexo clean
           hexo generate
-          ls -la public/   
+          echo "Generated files:"
+          find public/ -type f
           
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
