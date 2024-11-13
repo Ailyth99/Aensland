@@ -2,14 +2,18 @@ name: Deploy Hexo Blog
 on:
   push:
     branches:
-      - makai   
+      - makai
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: true   
       
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -25,10 +29,11 @@ jobs:
         run: |
           hexo clean
           hexo generate
+          ls -la public/   
           
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./public   
+          publish_dir: ./public
