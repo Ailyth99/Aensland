@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - uses: actions/checkout@v3
@@ -21,14 +23,22 @@ jobs:
           npm install hexo-cli -g
           npm install
           
+      - name: Install Theme
+        run: |
+          git clone https://github.com/probberechts/hexo-theme-cactus.git themes/cactus
+          
       - name: Build
         run: |
           hexo clean
+          echo "=== Before Generate ==="
+          ls -la themes/
           hexo generate
+          echo "=== After Generate ==="
+          ls -la public/
           
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./public   
+          publish_dir: ./public
