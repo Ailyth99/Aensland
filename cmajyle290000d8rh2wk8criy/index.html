@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="最近帮忙处理一些PSP游戏汉化需要给PMF视频加字幕的问题，为了提高效率，弄了一个简化的PMF和MP4之间实现互相转换的工具PMFaerie。标题里面写的“PMF与MP4之间的直接转换”其实不算严谨，应该是说使用层面上的直接转换，也就是说使用时只需要选择MP4文件，然后点击转换就行了，最后得到一个pmf，操作得到了很大的简化。核心工具全是现成的，主要是依赖索尼的PSP开发SDK里面的PSMF St">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PSP视频格式PMF与MP4之间的直接转换">
+<meta property="og:url" content="https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/index.html">
+<meta property="og:site_name" content="SoulEraser">
+<meta property="og:description" content="最近帮忙处理一些PSP游戏汉化需要给PMF视频加字幕的问题，为了提高效率，弄了一个简化的PMF和MP4之间实现互相转换的工具PMFaerie。标题里面写的“PMF与MP4之间的直接转换”其实不算严谨，应该是说使用层面上的直接转换，也就是说使用时只需要选择MP4文件，然后点击转换就行了，最后得到一个pmf，操作得到了很大的简化。核心工具全是现成的，主要是依赖索尼的PSP开发SDK里面的PSMF St">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/6820dd5158cb8da5c8ec4dbd.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/6820de2158cb8da5c8ec4e14.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/6820e00b58cb8da5c8ec4eeb.png">
+<meta property="article:published_time" content="2025-05-11T16:54:18.000Z">
+<meta property="article:modified_time" content="2025-05-11T17:59:38.544Z">
+<meta property="article:author" content="delphis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.imgdb.cn/item/6820dd5158cb8da5c8ec4dbd.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/Aensland/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/Aensland/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/Aensland/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>PSP视频格式PMF与MP4之间的直接转换</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/Aensland/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/Aensland/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/Aensland/cm8j0qaec00008srhcz996fz0/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&text=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&is_video=false&description=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PSP视频格式PMF与MP4之间的直接转换&body=Check out this article: https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&name=PSP视频格式PMF与MP4之间的直接转换&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&t=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PMFaerie%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PMFaerie的简单说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B7%A5%E5%85%B7%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">以下是工具工作的详细步骤说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PMF%E8%BD%ACMP4"><span class="toc-number">2.1.</span> <span class="toc-text">PMF转MP4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP4%E8%BD%ACPMF"><span class="toc-number">2.2.</span> <span class="toc-text">MP4转PMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">GUI工具的实现</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        PSP视频格式PMF与MP4之间的直接转换
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">delphis</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-05-11T16:54:18.000Z" class="dt-published" itemprop="datePublished">2025-05-12</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>最近帮忙处理一些PSP游戏汉化需要给PMF视频加字幕的问题，为了提高效率，弄了一个简化的PMF和MP4之间实现互相转换的工具PMFaerie。<br>标题里面写的“PMF与MP4之间的直接转换”其实不算严谨，应该是说使用层面上的直接转换，也就是说使用时只需要选择MP4文件，然后点击转换就行了，最后得到一个pmf，操作得到了很大的简化。<br>核心工具全是现成的，主要是依赖索尼的PSP开发SDK里面的PSMF Stream Composer Suite工具链，以及地球最强开源音视频处理工具FFMPEG。<br>PSF全称Playstation Media format(PS媒体格式)，主要用在PSP界面的游戏图标动画和游戏内部的视频，如果是做汉化工作，那么避不开这种格式。</p>
+<h2 id="PMFaerie的简单说明："><a href="#PMFaerie的简单说明：" class="headerlink" title="PMFaerie的简单说明："></a>PMFaerie的简单说明：</h2><ol>
+<li><strong>MP4 → PMF 转换</strong>：将常见的视频文件（如 MP4）转换为 PSP兼容的 PMF 格式。</li>
+<li><strong>PMF → MP4 转换</strong>：将 PMF 文件解复用并重新封装为通用的MP4格式，方便在现在的各种视频工具中编辑。</li>
+</ol>
+<p>工具在执行转换过程中，会自动处理所有中间文件的生成和清理，用户无需关心复杂的命令行操作细节。</p>
+<h2 id="以下是工具工作的详细步骤说明："><a href="#以下是工具工作的详细步骤说明：" class="headerlink" title="以下是工具工作的详细步骤说明："></a>以下是工具工作的详细步骤说明：</h2><h3 id="PMF转MP4"><a href="#PMF转MP4" class="headerlink" title="PMF转MP4"></a>PMF转MP4</h3><p>PSPdevwiki上面的PMF条目明确说了PMF可以利用FFMPEG进行解复用（分解为音频和视频），但是我发现有个现成的命令行工具pmfdump的使用更简单，只需要指定三个参数就行：<br></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmfdump OP01.pmf -a audio_output.oma -v video_output.264</span><br></pre></td></tr></table></figure>
+<p>然后使用FFMPEG对其进行复用，输出为MP4,PSP标准分辨率480*272<br></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -framerate 30000/1001 -i video.264 -i audio.oma -map 0:v -map 1:a -c:v libx264 -s 480x272 -c:a aac output.mp4</span><br></pre></td></tr></table></figure>
+
+<h3 id="MP4转PMF"><a href="#MP4转PMF" class="headerlink" title="MP4转PMF"></a>MP4转PMF</h3><p>这个过程的步骤要比PMF到MP4多不少，在PSMF Stream Composer Suite工具链中，有好几个相关的处理工具，其中包括一个带界面的综合性工具UmdStreamComposer.exe，如果不熟悉命令行工具的话，可以用这个，具体可以参考中国宋庄大佬的文章：<br>不过工具包里面还包括了好几个命令行工具，这些工具完全可以作为组件拼装到其他程序里面调用，提升效率，而且开发包里面还附带了使用文档。<br>构建PMF的官方流程如下：<br><img src="https://pic1.imgdb.cn/item/6820dd5158cb8da5c8ec4dbd.png"></p>
+<p>首先从获取AVI+WAV开始：</p>
+<ol>
+<li><p><strong>MP4 -&gt; AVI+WAV （FFMPEG）</strong></p>
+<p>这里不能随便转，说明文档里面明确说明了哪种AVI才符合要求：<br><img src="https://pic1.imgdb.cn/item/6820de2158cb8da5c8ec4e14.png"></p>
+<p>这里会把视频流输出为未压缩的raw格式，容量会膨胀很多，而颜色格式必须是指定的那几个，这里用的YUY2（FFMPEG命令里面要写成yuyv422）。<br>除了颜色格式，帧数也有要求，必须是29.97fps，音频也按照要求来输出44100采样率的WAV（CD音质）。<br>最终使用的FFMPEG命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.mp4 -map 0:v -c:v rawvideo -pix_fmt yuyv422 -r 30000/1001 -s 480x272 -an test.avi -map 0:a -c:a pcm_s16le -ar 44100 -vn test.wav</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>音频转换 WAV -&gt; ATX （命令行工具psmfenc）</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmfenc.exe -audio -avgb 128 -adjust_v test.avi test.wav audio.atx</span><br></pre></td></tr></table></figure>
+<p>把刚才的WAV转成需要的ATX格式，这里需要指定平均比特率，文档里面说明了，最大支持到320kbps。<br><img src="https://pic1.imgdb.cn/item/6820e00b58cb8da5c8ec4eeb.png"><br><br>还有个很重要的参数-adjust_v，这是指定一个参考视频（就用刚刚输出的AVI视频），让最后输出的ATX和这个视频的长度一模一样，如不指定此参数，那可能后续会出现音画不同步，处理会报错，无法生成PMF。</p>
+</li>
+<li><p><strong>视频转换 AVI -&gt; BSF （命令行工具psmfenc）</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmfenc.exe -video -avgb 1500 test.avi video.bsf</span><br></pre></td></tr></table></figure>
+<p>这一步的自定义参数只需要注意平均比特率，文档同样给出了范围，1000~2000之间。</p>
+</li>
+<li><p><strong>复用 ATX+BSF -&gt; MPS （命令行工具psmfmux）</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psmfmux.exe video.bsf audio.atx test.mps</span><br></pre></td></tr></table></figure>
+<p>这步的命令很简单，只需要把上两步输出的atx音频流和bsf视频流输入，输出一个mps视频文件。</p>
+</li>
+<li><p><strong>MPS -&gt; PMF (命令行工具PsmfComposerCMD)</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PsmfComposerCMD.exe test.mps TEST.pmf</span><br></pre></td></tr></table></figure>
+<p>这步也是最后一步，很简单的命令，指定上一步的mps路径，以及最终输出的pmf路径。</p>
+</li>
+</ol>
+<h2 id="GUI工具的实现"><a href="#GUI工具的实现" class="headerlink" title="GUI工具的实现"></a>GUI工具的实现</h2><p>分成两个tab，一个MP42PMF，一个PMF2MP4，其实MP42PMF不仅是MP4可以转，常见的各种视频格式都行，因为是FFMPEG来处理第一步得到AVI+WAV，而FFMPEG能处理的格式太多了。<br>由于在生成PMF过程中有好几步，而且中间会产生很多中间文件，于是GUI会自动生成一个随机文件夹，用于存放中间文件，并在得到最终的PMF后，删除这些文件，不占空间。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/Aensland/">Home</a></li>
+        
+          <li><a href="/Aensland/about/">About</a></li>
+        
+          <li><a href="/Aensland/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PMFaerie%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PMFaerie的简单说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B7%A5%E5%85%B7%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">以下是工具工作的详细步骤说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PMF%E8%BD%ACMP4"><span class="toc-number">2.1.</span> <span class="toc-text">PMF转MP4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP4%E8%BD%ACPMF"><span class="toc-number">2.2.</span> <span class="toc-text">MP4转PMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">GUI工具的实现</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&text=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&is_video=false&description=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PSP视频格式PMF与MP4之间的直接转换&body=Check out this article: https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&title=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&name=PSP视频格式PMF与MP4之间的直接转换&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmajyle290000d8rh2wk8criy/&t=PSP视频格式PMF与MP4之间的直接转换"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    1886-2099
+    delphis
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/Aensland/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/Aensland/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
