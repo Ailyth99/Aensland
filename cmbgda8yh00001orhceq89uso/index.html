@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="初代XBOX游戏汉化的一些简要指南这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。 XBOX光盘镜像首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：  REDUMP项目制作的镜像：这种镜像一看大小都是7GB左右，大约占满一张DVD9，这种属于原始镜像。 XISO（注意它的扩展名依然是ISO）：则根据游戏而变">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初代XBOX游戏汉化的一些简要指南">
+<meta property="og:url" content="https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/index.html">
+<meta property="og:site_name" content="SoulEraser">
+<meta property="og:description" content="初代XBOX游戏汉化的一些简要指南这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。 XBOX光盘镜像首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：  REDUMP项目制作的镜像：这种镜像一看大小都是7GB左右，大约占满一张DVD9，这种属于原始镜像。 XISO（注意它的扩展名依然是ISO）：则根据游戏而变">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683eb93058cb8da5c828d56f.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683eb97258cb8da5c828d841.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683eb79a58cb8da5c828d008.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683eb78858cb8da5c828cf3b.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebe5b58cb8da5c8290cc5.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebe9758cb8da5c8290eb7.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebf0558cb8da5c8291146.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebf2d58cb8da5c8291173.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebd3358cb8da5c828f8f7.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebd9e58cb8da5c829033e.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebdbf58cb8da5c8290526.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683eba5558cb8da5c828e36b.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683eba0058cb8da5c828df2c.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebc0758cb8da5c828ea7c.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ec51c58cb8da5c829239b.png">
+<meta property="og:image" content="https://pic1.imgdb.cn/item/683ec56f58cb8da5c82923cb.png">
+<meta property="article:published_time" content="2025-06-03T10:18:28.000Z">
+<meta property="article:modified_time" content="2025-06-03T10:19:29.789Z">
+<meta property="article:author" content="delphis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.imgdb.cn/item/683eb93058cb8da5c828d56f.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/Aensland/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/Aensland/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/Aensland/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>初代XBOX游戏汉化的一些简要指南</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/Aensland/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/Aensland/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/Aensland/cmajyle290000d8rh2wk8criy/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&text=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&is_video=false&description=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=初代XBOX游戏汉化的一些简要指南&body=Check out this article: https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&name=初代XBOX游戏汉化的一些简要指南&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&t=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E4%BB%A3XBOX%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AE%80%E8%A6%81%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">初代XBOX游戏汉化的一些简要指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XBOX%E5%85%89%E7%9B%98%E9%95%9C%E5%83%8F"><span class="toc-number">1.1.</span> <span class="toc-text">XBOX光盘镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">图像格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%83%8F%E7%B4%A0%E9%87%8D%E6%8E%92-Swizzling"><span class="toc-number">1.2.1.</span> <span class="toc-text">关于像素重排 (Swizzling)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">视频格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">音频格式</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        初代XBOX游戏汉化的一些简要指南
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">delphis</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-06-03T10:18:28.000Z" class="dt-published" itemprop="datePublished">2025-06-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="初代XBOX游戏汉化的一些简要指南"><a href="#初代XBOX游戏汉化的一些简要指南" class="headerlink" title="初代XBOX游戏汉化的一些简要指南"></a>初代XBOX游戏汉化的一些简要指南</h1><p>这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。</p>
+<h2 id="XBOX光盘镜像"><a href="#XBOX光盘镜像" class="headerlink" title="XBOX光盘镜像"></a>XBOX光盘镜像</h2><p>首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：</p>
+<ul>
+<li><strong>REDUMP项目制作的镜像</strong>：这种镜像一看大小都是7GB左右，大约占满一张DVD9，这种属于原始镜像。</li>
+<li><strong>XISO</strong>（注意它的扩展名依然是ISO）：则根据游戏而变化，从几百MB到五六GB的都有。</li>
+</ul>
+<p>像XEMU之类的模拟器，只支持加载XISO，如果你下载的是REDUMP的原始镜像ISO，还需要先转换成XISO。<br>可以使用这个在线的转换工具：<a target="_blank" rel="noopener" href="https://xiso.antangelo.com/">https://xiso.antangelo.com/</a> （基于WASM运行在本地，无需实际上传镜像）</p>
+<p>原始镜像为啥那么大呢？ 因为在游戏数据之外还保存了诸如演示视频之类的数据，可以当做普通DVD拿到其他设备播放。<br>XBOX光盘里面有两个分区：</p>
+<ul>
+<li>一个是 <strong>游戏分区</strong>，文件系统是专门开发的XBOX DVD FILE SYSTEM，简称XDVDFS。</li>
+<li>另一个分区就是普通DVD那种 <strong>ISO9660文件系统</strong>。<br>所以下载一个原始镜像，可以用WINDOWS10的虚拟光驱打开，但是只能看到一些视频文件，而找不到任何游戏数据相关的文件。<br>XISO就是剥离了非游戏文件，只保存了XDVDFS分区的镜像文件。</li>
+</ul>
+<p>如果想把XISO里面的数据抽取出来，需要使用 <em>UltraISO</em>(可以用，但是无法获取文件的时间戳)，或者 <em>Xbox Image Browser</em>，把所有抽取的数据保存在一个文件夹里面，然后汉化就是修改其中的一些文件。<br>修改完之后需要重建镜像，这时候可以用 <em>Qwix</em> 这个工具，最新版本是1.01。选择 <code>create ISO</code>，选择 <code>local folder</code>，再选择之前存放所有数据的文件夹，以及保存新ISO的位置即可。<br>这个过程生成的ISO就是XISO，可以在模拟器直接运行。</p>
+<p>XBOX游戏的主启动文件为 <code>default.xbe</code>，<code>xbe</code> 即为 <em>XBOX executable file</em>（XBOX可执行文件），每个游戏镜像根目录都有一个。相当于PS1，PS2的那种 <code>SLPS_***.**</code>，是整个游戏运行的入口。</p>
+<h2 id="图像格式"><a href="#图像格式" class="headerlink" title="图像格式"></a>图像格式</h2><p>除了各种像素格式的位图之外，XBOX游戏最常见的图像格式是各种DXT有损压缩图像，包括 <code>DXT1</code>, <code>DXT3</code>, <code>DXT5</code>。这类图像在PC游戏也很常见。具体可以参考这个WIKI：<a target="_blank" rel="noopener" href="https://www.fsdeveloper.com/wiki/index.php/Texture_formats_overview">Texture formats overview</a><br>这些不同的DXT压缩图像数据被装在各种各样的图像容器里，比如常见的 <code>DDS</code> 格式, 使用XNView等PC上的查看器可以直接查看DDS。</p>
+<p><strong>DDS格式应用示例：</strong></p>
+<ul>
+<li><p>FS的《御伽》，其主要贴图全是以 <code>DDS</code> 直接储存（包括字库）：<br><br><img src="https://pic1.imgdb.cn/item/683eb93058cb8da5c828d56f.png"><img src="https://pic1.imgdb.cn/item/683eb97258cb8da5c828d841.png"></p>
+</li>
+<li><p>《战斗妖精雪风》，所有的loading画面都是DDS：<br><br><img src="https://pic1.imgdb.cn/item/683eb79a58cb8da5c828d008.png"><img src="https://pic1.imgdb.cn/item/683eb78858cb8da5c828cf3b.png"></p>
+</li>
+<li><p>大名鼎鼎的卡普空粪作《恐龙危机3》，其主要贴图格式也是DDS, 封装在 <code>.XTX</code> 扩展名的档案文件里面（包括字库）：<br><br><img src="https://pic1.imgdb.cn/item/683ebe5b58cb8da5c8290cc5.png"><img src="https://pic1.imgdb.cn/item/683ebe9758cb8da5c8290eb7.png"></p>
+</li>
+</ul>
+<p>判断其DXT类型，在文件头里面写的明明白白（DDS的文件头为前128字节）：<br><img src="https://pic1.imgdb.cn/item/683ebf0558cb8da5c8291146.png"><img src="https://pic1.imgdb.cn/item/683ebf2d58cb8da5c8291173.png"></p>
+<p>使用微软开源的 <code>texconv</code> 工具可以轻松实现 <code>DDS</code> 和 <code>PNG</code> 的互转：<a target="_blank" rel="noopener" href="https://github.com/microsoft/DirectXTex">microsoft&#x2F;DirectXTex on GitHub</a></p>
+<p><strong>自有图像格式&#x2F;容器示例：</strong></p>
+<p>也有很多游戏使用自有图像格式或自定义容器封装标准图像数据，例如：</p>
+<ul>
+<li><p>《铁甲飞龙ORTA》的 <code>.txb</code>。<code>.txb</code> 也是一种容器，某些 <code>.txb</code> 里面装的是 <code>DXT3</code> 图像（比如字库图像即是如此），某些是装的 <code>RGBA8888</code> 真彩色位图（比如标题）。<br><br><img src="https://pic1.imgdb.cn/item/683ebd3358cb8da5c828f8f7.png"></p>
+</li>
+<li><p>KONAMI的空战游戏《Airforce delta 2》，里面有大量扩展名为 <code>.xbs</code> 的文件，实际为贴图容器，里面的图像类型包括 <code>DXT1</code>，<code>DXT5</code>，<code>RGBA8888</code>。</p>
+<ul>
+<li>其中字库是 <code>DXT5</code>：<br><br><img src="https://pic1.imgdb.cn/item/683ebd9e58cb8da5c829033e.png"></li>
+<li>关卡介绍图像是 <code>DXT1</code>：<br><br><img src="https://pic1.imgdb.cn/item/683ebdbf58cb8da5c8290526.png"></li>
+</ul>
+</li>
+</ul>
+<h3 id="关于像素重排-Swizzling"><a href="#关于像素重排-Swizzling" class="headerlink" title="关于像素重排 (Swizzling)"></a>关于像素重排 (Swizzling)</h3><p>DXT压缩图像一般直接储存，XBOX开发之初应该就考虑到了GPU对这种格式的直接支持，所以通常无需重新处理这些图像数据。而那些原始的位图（如RGBA8888），则往往经过了像素重排（<em>swizzle</em>）以优化GPU显存读取效率。</p>
+<p>例如上面例子里面《铁甲飞龙ORTA》的标题, 是 <code>RGBA8888</code> 的位图，实际储存的数据（重排后）长这样：<br><br><img src="https://pic1.imgdb.cn/item/683eba5558cb8da5c828e36b.png"><br><br>需要对其进行反重排（<em>unswizzle</em>）后才能显示为人能看懂的图像（原始像素排列）：<br><br><img src="https://pic1.imgdb.cn/item/683eba0058cb8da5c828df2c.png"><br><br>这里使用的重排方法是 *Morton Order (Z-order curve)*，你可以调用 <a target="_blank" rel="noopener" href="https://pypi.org/project/ReverseBox/">ReverseBox</a> 这个Python库来完成，也可以参考其代码实现。</p>
+<p><code>RGBA8888</code> 的位图在其他游戏里面也不少，比如《AIRFORCE DELTA 2》的机体贴图，同样的也是MORTON swizzle：<br><br><img src="https://pic1.imgdb.cn/item/683ebc0758cb8da5c828ea7c.png"><br></p>
+<p>也有些位图没经过重排的，目前我接触过的有《铁甲飞龙1》，其扩展名为 <code>.CGZ</code> 的文件，实际是储存的原汁原味的 <code>BGRX5551</code> 图像。</p>
+<p><strong>通用图像格式应用示例：</strong></p>
+<p>除了以上针对主机优化的格式外，也有一些游戏直接使用了PC上常见的通用图像格式：</p>
+<ul>
+<li>比如KONAMI的游戏王《Yu-Gi-Oh! The Dawn of Destiny》。这游戏里面的卡牌直接以无损压缩格式 <code>TGA</code> 储存，而一些菜单则是最常见的 <code>PNG</code> 格式。这种图像在电脑上处理起来更为便捷。<br><br><img src="https://pic1.imgdb.cn/item/683ec51c58cb8da5c829239b.png"><img src="https://pic1.imgdb.cn/item/683ec56f58cb8da5c82923cb.png"></li>
+</ul>
+<h2 id="视频格式"><a href="#视频格式" class="headerlink" title="视频格式"></a>视频格式</h2><p>XBOX标准的视频格式为 <code>XMV</code> (Xbox Media Video)。微软的官方XBOX SDK (XDK) 里面包含有处理XMV的相关工具。</p>
+<p>第三方视频格式在XBOX游戏中也比较常见：</p>
+<ul>
+<li>**SFD (Sofdec)**：由CRI Middleware开发，主要在日系游戏中使用。<ul>
+<li><em>工具提示</em>：处理SFD可以去archive.org搜索criware泄露的工具，在2020年的一次卡普空泄露中，包括WII版的生化危机暗黑编年史的源代码，重要的不是这个，而是其中包含了一套从未泄露过的criware的某个版本的工具包（还有一些WII开发的工具包）…里面那个版本的SFD处理工具可以直接编码PS2,XBOX,NGC等平台要求的参数的SFD。</li>
+</ul>
+</li>
+<li>**BIK (Bink Video)**：由RAD Game Tools开发，欧美游戏用的较多。<ul>
+<li><em>工具提示</em>：处理BIK视频，可以直接搜索并使用RAD Game Tools官方提供的套件。</li>
+</ul>
+</li>
+</ul>
+<h2 id="音频格式"><a href="#音频格式" class="headerlink" title="音频格式"></a>音频格式</h2><p>XBOX官方SDK (XDK) 中推荐的音频格式是 <code>XMA</code> (Xbox Media Audio)。据称处理起来相对容易。</p>
+<p>当然，也有游戏使用第三方音频格式，例如：</p>
+<ul>
+<li><strong>ADX</strong>：同样来自CRI Middleware，这类格式通常有较为成熟的第三方工具支持。</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/Aensland/">Home</a></li>
+        
+          <li><a href="/Aensland/about/">About</a></li>
+        
+          <li><a href="/Aensland/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E4%BB%A3XBOX%E6%B8%B8%E6%88%8F%E6%B1%89%E5%8C%96%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AE%80%E8%A6%81%E6%8C%87%E5%8D%97"><span class="toc-number">1.</span> <span class="toc-text">初代XBOX游戏汉化的一些简要指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#XBOX%E5%85%89%E7%9B%98%E9%95%9C%E5%83%8F"><span class="toc-number">1.1.</span> <span class="toc-text">XBOX光盘镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">图像格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%83%8F%E7%B4%A0%E9%87%8D%E6%8E%92-Swizzling"><span class="toc-number">1.2.1.</span> <span class="toc-text">关于像素重排 (Swizzling)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">视频格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">音频格式</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&text=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&is_video=false&description=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=初代XBOX游戏汉化的一些简要指南&body=Check out this article: https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&title=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&name=初代XBOX游戏汉化的一些简要指南&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/&t=初代XBOX游戏汉化的一些简要指南"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    1886-2099
+    delphis
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/Aensland/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/Aensland/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
