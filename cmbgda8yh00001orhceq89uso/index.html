@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta name="description" content="这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。但不包括对档案文件（比如AFS,XPR等）进行解包，以及压缩相关的内容。 XBOX光盘镜像首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：  REDUMP项目制作的镜像：这种镜像一看大小都是4~6GB左右，解压后大约占满一张DVD9，这种属于原始镜像。 XIS">
+    <meta name="description" content="这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。但不包括对档案文件（比如AFS,XPR等）进行解包，以及压缩相关的内容。 XBOX光盘镜像首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：  REDUMP项目制作的镜像：这种镜像一看大小都是5G以上，解压后大约占满一张DVD9，这种属于原始镜像。 XISO（注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初代XBOX游戏汉化的一些简要指南">
 <meta property="og:url" content="https://ailyth99.github.io/Aensland/cmbgda8yh00001orhceq89uso/index.html">
 <meta property="og:site_name" content="SoulEraser">
-<meta property="og:description" content="这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。但不包括对档案文件（比如AFS,XPR等）进行解包，以及压缩相关的内容。 XBOX光盘镜像首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：  REDUMP项目制作的镜像：这种镜像一看大小都是4~6GB左右，解压后大约占满一张DVD9，这种属于原始镜像。 XIS">
+<meta property="og:description" content="这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。但不包括对档案文件（比如AFS,XPR等）进行解包，以及压缩相关的内容。 XBOX光盘镜像首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：  REDUMP项目制作的镜像：这种镜像一看大小都是5G以上，解压后大约占满一张DVD9，这种属于原始镜像。 XISO（注">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683f392058cb8da5c829c572.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683eb93058cb8da5c828d56f.png">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683ec51c58cb8da5c829239b.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683ec56f58cb8da5c82923cb.png">
 <meta property="article:published_time" content="2025-06-03T10:18:28.000Z">
-<meta property="article:modified_time" content="2025-06-03T18:47:16.178Z">
+<meta property="article:modified_time" content="2025-06-14T07:58:51.461Z">
 <meta property="article:author" content="delphis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic1.imgdb.cn/item/683f392058cb8da5c829c572.png">
@@ -175,18 +175,19 @@
     <p>这是一个非常初级的指南，主要是说明一下XBOX游戏的镜像特征，以及常见的文件格式。但不包括对档案文件（比如AFS,XPR等）进行解包，以及压缩相关的内容。</p>
 <h2 id="XBOX光盘镜像"><a href="#XBOX光盘镜像" class="headerlink" title="XBOX光盘镜像"></a>XBOX光盘镜像</h2><p>首先说下XB游戏的载体，虽然是光盘，能下载到的游戏文件也是扩展名为ISO的镜像文件，但这些ISO分成两种：</p>
 <ul>
-<li><strong>REDUMP项目制作的镜像</strong>：这种镜像一看大小都是4~6GB左右，解压后大约占满一张DVD9，这种属于原始镜像。<br><img src="https://pic1.imgdb.cn/item/683f392058cb8da5c829c572.png"></li>
+<li><strong>REDUMP项目制作的镜像</strong>：这种镜像一看大小都是5G以上，解压后大约占满一张DVD9，这种属于原始镜像。<br><img src="https://pic1.imgdb.cn/item/683f392058cb8da5c829c572.png"></li>
 <li><strong>XISO</strong>（注意它的扩展名依然是ISO）：则根据游戏而变化，从几百MB到五六GB的都有。</li>
 </ul>
-<p>像XEMU之类的模拟器，只支持加载XISO，如果你下载的是REDUMP的原始镜像ISO，还需要先转换成XISO。<br>可以使用这个在线的转换工具：<a target="_blank" rel="noopener" href="https://xiso.antangelo.com/">https://xiso.antangelo.com/</a> （基于WASM运行在本地，无需实际上传镜像）</p>
-<p>原始镜像为啥那么大呢？ 因为在游戏数据之外还保存了诸如演示视频之类的数据，可以当做普通DVD拿到其他设备播放，另外就是一些压缩不动的随机填充数据。<br>XBOX光盘里面有两个分区：</p>
+<p>像XEMU之类的模拟器，只支持加载XISO，如果你下载的是REDUMP的原始镜像ISO，还需要先转换成XISO。<br>可以使用这个在线的转换工具：<a target="_blank" rel="noopener" href="https://xiso.antangelo.com/">https://xiso.antangelo.com/</a> （基于WASM运行在本地，无需实际上传镜像到服务器）</p>
+<p>原始镜像为啥那么大呢？<br>XBOX光盘里面有两个分区：</p>
 <ul>
 <li>一个是 <strong>游戏分区</strong>，文件系统是专门开发的XBOX DVD FILE SYSTEM，简称XDVDFS。</li>
-<li>另一个分区就是普通DVD那种 <strong>ISO9660文件系统</strong>。<br>所以下载一个原始镜像，可以用WINDOWS10的虚拟光驱打开，但是只能看到一些视频文件，而找不到任何游戏数据相关的文件。<br>XISO就是剥离了非游戏文件，只保存了XDVDFS分区的镜像文件。</li>
+<li>另一个分区就是普通DVD那种 <strong>ISO9660文件系统</strong>,有些游戏会放一些演示视频之类的数据，可以当做普通DVD拿到其他设备播放，但绝大部分游戏只放一个10多MB的视频，提醒你这是XBOX光盘，只能在XBOX使用。另外就是一些压缩不动的随机填充数据，所以原始镜像文件，哪怕是一个两三百MB的试玩版，它的镜像也压缩后也有四五GB大小。</li>
 </ul>
-<p>如果想把XISO里面的数据抽取出来，需要使用 <em>UltraISO</em>(可以用，但是无法获取文件的时间戳)，或者 <em>Xbox Image Browser</em>，把所有抽取的数据保存在一个文件夹里面，然后汉化就是修改其中的一些文件。<br>修改完之后需要重建镜像，这时候可以用 <em>Qwix</em> 这个工具，最新版本是1.01。选择 <code>create ISO</code>，选择 <code>local folder</code>，再选择之前存放所有数据的文件夹，以及保存新ISO的位置即可。<br>这个过程生成的ISO就是XISO，可以在模拟器直接运行。</p>
-<p>XBOX游戏的主启动文件为 <code>default.xbe</code>，<code>xbe</code> 即为 <em>XBOX executable file</em>（XBOX可执行文件），每个游戏镜像根目录都有一个。相当于PS1，PS2的那种 <code>SLPS_***.**</code>，是整个游戏运行的入口。</p>
-<h2 id="图像格式"><a href="#图像格式" class="headerlink" title="图像格式"></a>图像格式</h2><p>除了各种像素格式的位图之外，XBOX游戏最常见的图像格式是各种DXT有损压缩图像，包括 <code>DXT1</code>, <code>DXT3</code>, <code>DXT5</code>。这类图像在PC游戏也很常见。具体可以参考这个WIKI：<a target="_blank" rel="noopener" href="https://www.fsdeveloper.com/wiki/index.php/Texture_formats_overview">Texture formats overview</a><br>这些不同的DXT压缩图像数据被装在各种各样的图像容器里，比如常见的 <code>DDS</code> 格式, 使用XNView等PC上的查看器可以直接查看DDS。</p>
+<p>所以下载一个原始镜像，可以用WINDOWS10的虚拟光驱打开，但是只能看到一些视频文件，而找不到任何游戏数据相关的文件。<br>XISO就是剥离了非游戏文件，只保存了XDVDFS分区的镜像文件，所以XISO的容量差异非常大。</p>
+<p>如果想把XISO里面的数据抽取出来，需要使用 <em>UltraISO</em>(可以用，但是无法获取文件的时间戳),或者命令行工具<a target="_blank" rel="noopener" href="https://github.com/XboxDev/extract-xiso">extract-xiso</a>。<br>如果要从原始镜像中抽取数据，需要 <em>Xbox Image Browser</em>。<br>以上方法可以把抽取的数据保存在一个文件夹里面，然后汉化就是修改其中的一些文件。<br>修改完之后需要重建镜像，这时候可以用 <em>Qwix</em> 这个工具，最新版本是1.01。选择 <code>create ISO</code>，选择 <code>local folder</code>，再选择之前存放所有数据（包括修改的文件）的文件夹，以及保存新ISO的位置即可。<br>这个过程生成的ISO就是XISO，可以在模拟器直接运行。之前说到的extract-xiso也可以用来重建XISO镜像。</p>
+<p>XBOX游戏的主启动文件为 <code>default.xbe</code>，<code>xbe</code> 即为 <em>XBOX executable file</em>（XBOX可执行文件），每个游戏镜像根目录都有一个。相当于PC游戏那个启动游戏用的主exe文件。</p>
+<h2 id="图像格式"><a href="#图像格式" class="headerlink" title="图像格式"></a>图像格式</h2><p>除了各种像素格式的位图之外，XBOX游戏最常见的图像格式是各种DXT有损压缩图像，包括 <code>DXT1~DXT5</code>，其中最常见的是DXT1&#x2F;3&#x2F;5。这类图像在PC游戏也很常见。具体可以参考这个WIKI：<a target="_blank" rel="noopener" href="https://www.fsdeveloper.com/wiki/index.php/Texture_formats_overview">Texture formats overview</a><br>这些不同的DXT压缩图像数据被装在各种各样的图像容器里，比如常见的 <code>DDS</code> 格式, 使用XNView等PC上的查看器可以直接查看DDS。</p>
 <p><strong>DDS格式应用示例：</strong></p>
 <ul>
 <li><p>FS的《御伽》，其主要贴图全是以 <code>DDS</code> 直接储存（包括字库）：<br><br><img src="https://pic1.imgdb.cn/item/683eb93058cb8da5c828d56f.png"><img src="https://pic1.imgdb.cn/item/683eb97258cb8da5c828d841.png"></p>
@@ -201,7 +202,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">texconv -ft dds -f BC2_UNORM input.png -o . </span><br></pre></td></tr></table></figure>
 <p>PNG2DDS(DXT3)</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">texconv -ft png input.dds -o . -y</span><br></pre></td></tr></table></figure>
-
+<p>修改DDS只需要把图像转换成PNG后编辑，再转换成同样DXT类型的DDS就行了。</p>
 <p><strong>自有图像格式&#x2F;容器示例：</strong></p>
 <p>也有很多游戏使用自有图像格式或自定义容器封装标准图像数据，例如：</p>
 <ul>
