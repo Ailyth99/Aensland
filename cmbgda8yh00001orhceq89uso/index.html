@@ -18,8 +18,6 @@
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683eb97258cb8da5c828d841.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683eb79a58cb8da5c828d008.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683eb78858cb8da5c828cf3b.png">
-<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebe5b58cb8da5c8290cc5.png">
-<meta property="og:image" content="https://pic1.imgdb.cn/item/683ebe9758cb8da5c8290eb7.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683ebf0558cb8da5c8291146.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683ebf2d58cb8da5c8291173.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683f3e2a58cb8da5c829c649.png">
@@ -33,7 +31,7 @@
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683ec51c58cb8da5c829239b.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/683ec56f58cb8da5c82923cb.png">
 <meta property="article:published_time" content="2025-06-03T10:18:28.000Z">
-<meta property="article:modified_time" content="2025-06-14T07:58:51.461Z">
+<meta property="article:modified_time" content="2025-07-26T08:56:26.815Z">
 <meta property="article:author" content="delphis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic1.imgdb.cn/item/683f392058cb8da5c829c572.png">
@@ -182,8 +180,9 @@
 <p>原始镜像为啥那么大呢？<br>XBOX光盘里面有两个分区：</p>
 <ul>
 <li>一个是 <strong>游戏分区</strong>，文件系统是专门开发的XBOX DVD FILE SYSTEM，简称XDVDFS。</li>
-<li>另一个分区就是普通DVD那种 <strong>ISO9660文件系统</strong>,有些游戏会放一些演示视频之类的数据，可以当做普通DVD拿到其他设备播放，但绝大部分游戏只放一个10多MB的视频，提醒你这是XBOX光盘，只能在XBOX使用。另外就是一些压缩不动的随机填充数据，所以原始镜像文件，哪怕是一个两三百MB的试玩版，它的镜像也压缩后也有四五GB大小。</li>
+<li>另一个分区就是普通DVD那种 <strong>ISO9660文件系统</strong>,有些游戏会放一些演示视频之类的数据，可以当做普通DVD拿到其他设备播放，但绝大部分游戏只放一个10多MB的视频，提醒你这是XBOX光盘，只能在XBOX使用。</li>
 </ul>
+<p>另外这两个分区，都有一些压缩不动的随机填充数据，所以原始镜像文件，哪怕是一个两三百MB的试玩版，它的镜像也压缩后也有四五GB大小。</p>
 <p>所以下载一个原始镜像，可以用WINDOWS10的虚拟光驱打开，但是只能看到一些视频文件，而找不到任何游戏数据相关的文件。<br>XISO就是剥离了非游戏文件，只保存了XDVDFS分区的镜像文件，所以XISO的容量差异非常大。</p>
 <p>如果想把XISO里面的数据抽取出来，需要使用 <em>UltraISO</em>(可以用，但是无法获取文件的时间戳),或者命令行工具<a target="_blank" rel="noopener" href="https://github.com/XboxDev/extract-xiso">extract-xiso</a>。<br>如果要从原始镜像中抽取数据，需要 <em>Xbox Image Browser</em>。<br>以上方法可以把抽取的数据保存在一个文件夹里面，然后汉化就是修改其中的一些文件。<br>修改完之后需要重建镜像，这时候可以用 <em>Qwix</em> 这个工具，最新版本是1.01。选择 <code>create ISO</code>，选择 <code>local folder</code>，再选择之前存放所有数据（包括修改的文件）的文件夹，以及保存新ISO的位置即可。<br>这个过程生成的ISO就是XISO，可以在模拟器直接运行。之前说到的extract-xiso也可以用来重建XISO镜像。</p>
 <p>XBOX游戏的主启动文件为 <code>default.xbe</code>，<code>xbe</code> 即为 <em>XBOX executable file</em>（XBOX可执行文件），每个游戏镜像根目录都有一个。相当于PC游戏那个启动游戏用的主exe文件。</p>
@@ -193,8 +192,6 @@
 <li><p>FS的《御伽》，其主要贴图全是以 <code>DDS</code> 直接储存（包括字库）：<br><br><img src="https://pic1.imgdb.cn/item/683eb93058cb8da5c828d56f.png"><img src="https://pic1.imgdb.cn/item/683eb97258cb8da5c828d841.png"></p>
 </li>
 <li><p>《战斗妖精雪风》，所有的loading画面都是DDS：<br><br><img src="https://pic1.imgdb.cn/item/683eb79a58cb8da5c828d008.png"><img src="https://pic1.imgdb.cn/item/683eb78858cb8da5c828cf3b.png"></p>
-</li>
-<li><p>大名鼎鼎的卡普空粪作《恐龙危机3》，其主要贴图格式也是DDS, 封装在 <code>.XTX</code> 扩展名的档案文件里面（包括字库）：<br><br><img src="https://pic1.imgdb.cn/item/683ebe5b58cb8da5c8290cc5.png"><img src="https://pic1.imgdb.cn/item/683ebe9758cb8da5c8290eb7.png"></p>
 </li>
 </ul>
 <p>判断其DXT类型，在文件头里面写的明明白白（DDS的文件头为前128字节）：<br><img src="https://pic1.imgdb.cn/item/683ebf0558cb8da5c8291146.png"><img src="https://pic1.imgdb.cn/item/683ebf2d58cb8da5c8291173.png"></p>
