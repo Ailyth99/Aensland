@@ -6,15 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-    <meta property="og:type" content="article">
+    <meta name="description" content="首先，这款游戏标注的是恐怖游戏，但实际上，恐怖元素完全就是生拉硬扯贴上去的标签，其内核就是一个很普通的三消游戏。 不过，汉化这个游戏的目的并非因为它有多好玩，而是另有他用。 汉化的过程走了一点弯路。DS ROM 可以视作一个档案文件，本身可以被拆包，看到里面的子文件。拆包工具其实很多，比如：  NDSHeader ndstool (命令行工具)  一开始我下载了最新版的 ndstool，虽然可以顺">
+<meta property="og:type" content="article">
 <meta property="og:title" content="DS汉化记录《女子高生逃げる! 心霊パズル学園DS》">
 <meta property="og:url" content="https://ailyth99.github.io/Aensland/cmerhmp520000ggrh22x51wu3/index.html">
 <meta property="og:site_name" content="Hot Wind Sea Land">
+<meta property="og:description" content="首先，这款游戏标注的是恐怖游戏，但实际上，恐怖元素完全就是生拉硬扯贴上去的标签，其内核就是一个很普通的三消游戏。 不过，汉化这个游戏的目的并非因为它有多好玩，而是另有他用。 汉化的过程走了一点弯路。DS ROM 可以视作一个档案文件，本身可以被拆包，看到里面的子文件。拆包工具其实很多，比如：  NDSHeader ndstool (命令行工具)  一开始我下载了最新版的 ndstool，虽然可以顺">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/dslazy.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/nitropaint1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/nitropaint2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/nitropaint3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/blog1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/blog2.png">
 <meta property="article:published_time" content="2025-08-25T19:05:43.000Z">
-<meta property="article:modified_time" content="2025-08-25T19:05:43.414Z">
+<meta property="article:modified_time" content="2025-08-29T08:00:35.956Z">
 <meta property="article:author" content="delphis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/dslazy.png">
     
     
       
@@ -78,8 +87,6 @@
     <br/>
     <span id="actions">
       <ul>
-        
-        <li><a class="icon" aria-label="Previous post" href="/Aensland/cmerhnhds0000ukrhhs3xhdw9/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" aria-label="Next post" href="/Aensland/cmbgda8yh00001orhceq89uso/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -148,7 +155,48 @@
   
 
   <div class="content e-content" itemprop="articleBody">
-    
+    <p>首先，这款游戏标注的是<strong>恐怖游戏</strong>，但实际上，恐怖元素完全就是生拉硬扯贴上去的标签，其内核就是一个很普通的<strong>三消游戏</strong>。</p>
+<p>不过，汉化这个游戏的目的并非因为它有多好玩，而是另有他用。</p>
+<p>汉化的过程走了一点弯路。DS ROM 可以视作一个档案文件，本身可以被拆包，看到里面的子文件。拆包工具其实很多，比如：</p>
+<ul>
+<li><code>NDSHeader</code></li>
+<li><code>ndstool</code> (命令行工具)</li>
+</ul>
+<p>一开始我下载了最新版的 <code>ndstool</code>，虽然可以顺利拆包ROM，但封包后，游戏却无法运行，在DeSmuME模拟器中直接黑屏——这还是在我原封不动地拆包、又立刻打包的情况下。为了验证，我又找来一个别的游戏，用NDSTOOL工具拆包、封包，那个游戏却可以正常运行。</p>
+<blockquote>
+<p>到这一步，我开始判断：这个DS游戏是否也和某些PS2&#x2F;PSP游戏一样，文件在整个ROM封包中占据一个<strong>固定的offset</strong>，而程序是严格按照这个地址来寻找文件的。</p>
+<p>于是我制作了一个类似PS镜像查看器的工具，它可以直接浏览NDS文件内部，并替换其中的子文件。这种方式的好处是不会破坏原有的文件结构，但缺点也很明显：替换的文件大小必须小于或等于原文件。</p>
+</blockquote>
+<p>不过，我后面重新下载了一个名为 <strong>DSLazy</strong> 的工具。这其实也是调用的 <code>ndstool</code>，不过是十多年前的老版本。用这个版本的工具进行封包就完全没问题，即使替换了比原来更大的文件，新的ROM也能正常运行。</p>
+<p>这个工具其实我十多年前就用过，只是早忘了名字。不过看到界面时，还是一秒就认出来了，以前经常拿它来Trim ROM用。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/dslazy.png" alt="DSLazy"></p>
+<p>这个游戏没有几句对话，更没有对话字库，所有的对话和菜单文本都是<strong>图片</strong>。</p>
+<p>游戏内的图像资源主要分为两种格式：</p>
+<ul>
+<li><strong>NCGR&#x2F;NCBR</strong>: 图像文件。</li>
+<li><strong>NCLR</strong>: 调色板文件。</li>
+</ul>
+<p>它们通常是成对出现的，比如 <code>Title.NCGR</code> 和 <code>Title.NCLR</code>。</p>
+<p>要编辑这些文件，我使用的是 **<a target="_blank" rel="noopener" href="https://github.com/Garhoogin/NitroPaint">NitroPaint</a>**，这是一个非常强大的开源NDS图像资源修改工具，它支持很多NDS的图形格式，甚至包括字库文件NFTR。</p>
+<p>汉化的具体流程如下：</p>
+<ol>
+<li><p><strong>预览与导出</strong><br>把 <code>NCGR</code> 和 <code>NCLR</code> 文件一起拖到 NitroPaint 里就能直接预览。打开之后，可以看到图像被分为了一个个 <code>32x32</code> 像素的格子，这就是NDS图像的最小单位 <strong>Tile</strong>。在顶部菜单可以选择 <code>EXPORT</code> 导出为PNG图像，方便在Photoshop等工具中编辑。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/nitropaint1.png" alt="NitroPaint"></p>
+</li>
+<li><p><strong>导入修改后的图像</strong><br>在软件中，可以拖动鼠标选择画面的Tile区域，然后右键选择 <code>Import Bitmap</code>，就能导入新图像，支持PNG。这个功能很灵活，甚至可以选择图像的部分区域进行导入，不过这次我都是整张画面替换。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/nitropaint2.png" alt="NitroPaint 导入位图"></p>
+</li>
+<li><p><strong>更新调色板</strong><br>导入界面可以选择是否更新色板。如果不勾选，导入的图像会自动匹配当前的色板，这很可能造成图像颜色错误。所以，对于修改过的图片，<strong>需要更新色板</strong>。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/nitropaint3.png" alt="NitroPaint 调色板选项"></p>
+</li>
+<li><p><strong>保存与打包</strong><br>最后，把修改好的画面和色板保存为新的 <code>NCGR</code> 和 <code>NCLR</code> 文件，覆盖掉拆包资源中的原文件，再用 <code>DSLazy</code> 重新打包成ROM，进入模拟器测试，所有中文图片都正确显示了。</p>
+</li>
+</ol>
+<p>这个游戏的整个汉化过程就是不断地重复改图，可以说是一个极其易于汉化的NDS游戏。</p>
+<p>如前所述，汉化这个游戏并非因为它有多好玩，而是纯粹为了测试 <strong>“怨灵”字体</strong> 的AI生成效果。因为原版游戏使用的正是暗黑工房的免费日文字体“怨灵”，而我最近正好在研究AI生成字体技术，于是就拿这个游戏作为“试验场”，看看AI生成的中文怨灵风格字体能否与原版完美融合。</p>
+<p>事实证明，实际效果非常OK！</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/blog1.png" alt="汉化效果图1"><br><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/blog2.png" alt="汉化效果图2"></p>
+
   </div>
 </article>
 
