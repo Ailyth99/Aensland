@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/blog1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/blog2.png">
 <meta property="article:published_time" content="2025-08-25T19:05:43.000Z">
-<meta property="article:modified_time" content="2025-08-29T08:00:35.956Z">
+<meta property="article:modified_time" content="2025-08-29T08:16:00.717Z">
 <meta property="article:author" content="delphis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/dslazy.png">
@@ -163,10 +163,7 @@
 <li><code>ndstool</code> (命令行工具)</li>
 </ul>
 <p>一开始我下载了最新版的 <code>ndstool</code>，虽然可以顺利拆包ROM，但封包后，游戏却无法运行，在DeSmuME模拟器中直接黑屏——这还是在我原封不动地拆包、又立刻打包的情况下。为了验证，我又找来一个别的游戏，用NDSTOOL工具拆包、封包，那个游戏却可以正常运行。</p>
-<blockquote>
-<p>到这一步，我开始判断：这个DS游戏是否也和某些PS2&#x2F;PSP游戏一样，文件在整个ROM封包中占据一个<strong>固定的offset</strong>，而程序是严格按照这个地址来寻找文件的。</p>
-<p>于是我制作了一个类似PS镜像查看器的工具，它可以直接浏览NDS文件内部，并替换其中的子文件。这种方式的好处是不会破坏原有的文件结构，但缺点也很明显：替换的文件大小必须小于或等于原文件。</p>
-</blockquote>
+<p>到这一步，我开始判断：这个DS游戏是否也和某些PS2&#x2F;PSP游戏一样，文件在整个ROM封包中占据一个<strong>固定的offset</strong>，而程序是严格按照这个地址来寻找文件的。于是我制作了一个类似PS镜像查看器的工具，它可以直接浏览NDS文件内部，并替换其中的子文件。这种方式的好处是不会破坏原有的文件结构，但缺点也很明显：替换的文件大小必须小于或等于原文件。</p>
 <p>不过，我后面重新下载了一个名为 <strong>DSLazy</strong> 的工具。这其实也是调用的 <code>ndstool</code>，不过是十多年前的老版本。用这个版本的工具进行封包就完全没问题，即使替换了比原来更大的文件，新的ROM也能正常运行。</p>
 <p>这个工具其实我十多年前就用过，只是早忘了名字。不过看到界面时，还是一秒就认出来了，以前经常拿它来Trim ROM用。</p>
 <p><img src="https://raw.githubusercontent.com/EiliaLan/index-tts/refs/heads/main/assets/dslazy.png" alt="DSLazy"></p>
