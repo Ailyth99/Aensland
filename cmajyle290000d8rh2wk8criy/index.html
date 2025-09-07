@@ -16,8 +16,13 @@
 <meta property="og:image" content="https://pic1.imgdb.cn/item/6820dd5158cb8da5c8ec4dbd.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/6820de2158cb8da5c8ec4e14.png">
 <meta property="og:image" content="https://pic1.imgdb.cn/item/6820e00b58cb8da5c8ec4eeb.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_2000_avgbr.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_new.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_add_media.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_add_media2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_video_enc_setting.png">
 <meta property="article:published_time" content="2025-05-11T16:54:18.000Z">
-<meta property="article:modified_time" content="2025-05-11T17:59:38.544Z">
+<meta property="article:modified_time" content="2025-09-07T14:41:16.592Z">
 <meta property="article:author" content="delphis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://pic1.imgdb.cn/item/6820dd5158cb8da5c8ec4dbd.png">
@@ -118,7 +123,7 @@
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PMFaerie%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PMFaerie的简单说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B7%A5%E5%85%B7%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">以下是工具工作的详细步骤说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PMF%E8%BD%ACMP4"><span class="toc-number">2.1.</span> <span class="toc-text">PMF转MP4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP4%E8%BD%ACPMF"><span class="toc-number">2.2.</span> <span class="toc-text">MP4转PMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">GUI工具的实现</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PMFaerie%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PMFaerie的简单说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B7%A5%E5%85%B7%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">以下是工具工作的详细步骤说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PMF%E8%BD%ACMP4"><span class="toc-number">2.1.</span> <span class="toc-text">PMF转MP4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP4%E8%BD%ACPMF"><span class="toc-number">2.2.</span> <span class="toc-text">MP4转PMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">GUI工具的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%B6%B3"><span class="toc-number">4.</span> <span class="toc-text">不足</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Umd-Stream-Composer-2-5%E7%89%88%E4%B8%BA%E4%BE%8B"><span class="toc-number">4.1.</span> <span class="toc-text">Umd Stream Composer 2.5版为例</span></a></li></ol></li></ol>
       </div>
     
   </span>
@@ -195,6 +200,28 @@
 </li>
 </ol>
 <h2 id="GUI工具的实现"><a href="#GUI工具的实现" class="headerlink" title="GUI工具的实现"></a>GUI工具的实现</h2><p>分成两个tab，一个MP42PMF，一个PMF2MP4，其实MP42PMF不仅是MP4可以转，常见的各种视频格式都行，因为是FFMPEG来处理第一步得到AVI+WAV，而FFMPEG能处理的格式太多了。<br>由于在生成PMF过程中有好几步，而且中间会产生很多中间文件，于是GUI会自动生成一个随机文件夹，用于存放中间文件，并在得到最终的PMF后，删除这些文件，不占空间。</p>
+<h2 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h2><p>不过以上的工具，不能应付所有情况，因为是调用的命令行工具<code>psmfenc.exe</code>最高平均码率只支持到2000kbps，而PSP其实可以播放更高码率的PMF格式视频。某些游戏对视频码率有要求，低于或者高于某个范围就不会播放，比如FS的KING’S FILED ADDITIONAL，这游戏的PMF要求平均2500kbps才行，低于这个值，它不播，会直接跳过。<code>psmfenc.exe</code>没法生成这种规格的视频，只能用GUI工具<a target="_blank" rel="noopener" href="https://archive.org/download/psmf_stream_composer_suite_v2.5">PSMF Stream Composer</a> ，里面可以设置更改码率。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_2000_avgbr.png" alt="Umd 2000 avgbr"></p>
+<blockquote>
+<p><strong>下载地址:</strong><br><a target="_blank" rel="noopener" href="https://archive.org/download/psmf_stream_composer_suite_v2.5">https://archive.org/download/psmf_stream_composer_suite_v2.5</a></p>
+</blockquote>
+<p><strong>注意：</strong> <code>UmdStreamComposer.exe</code> 主程序如果打不开，改它的文件名就好了。</p>
+<h3 id="Umd-Stream-Composer-2-5版为例"><a href="#Umd-Stream-Composer-2-5版为例" class="headerlink" title="Umd Stream Composer 2.5版为例"></a>Umd Stream Composer 2.5版为例</h3><ol>
+<li><p>首先点击<strong>New</strong>，填写clip name，再创建一个新的项目名字，评论可以不写。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_new.png" alt="New Project"></p>
+</li>
+<li><p>第二步<strong>Create New Setting</strong>直接默认。</p>
+</li>
+<li><p>创建好之后，在主界面上方点击<strong>Video</strong>和<strong>Audio Source</strong>，添加音视频，这里需要符合要求的音视频，可以用PMFaerie的临时目录里面的AVI和WAV，省去自己敲命令行的步骤。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_add_media.png" alt="Add Media"><br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_add_media2.png" alt="Add Media 2"></p>
+</li>
+<li><p>点击<strong>Video Enc Setting</strong>，设置码率，这里把平均码率设置为2500，最高码率设置为3000，这里的平均码率没有2000的上限限制。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/umd_video_enc_setting.png" alt="Video Enc Setting"></p>
+</li>
+<li><p>点击顶部菜单的<strong>run-&gt;encode and mux</strong>,开始编码和复用音视频，这一步会得到一个MPS文件及其附加xml等文件，放在<code>document/UmdStreamComposer/MuxWork</code>目录里面。</p>
+</li>
+<li><p>最后还是用命令行把mps变成pmf（注意mps必须和xml等文件在一起，单独把mps拿出来是不能转换成功的）。</p>
+<pre><code class="shell">PsmfComposerCMD.exe &quot;C:\Users\Name\Documents\UmdStreamComposer\MuxWork\video1\video1\00001.MPS&quot; TEST.pmf
+</code></pre>
+</li>
+</ol>
 
   </div>
 </article>
@@ -222,7 +249,7 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PMFaerie%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PMFaerie的简单说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B7%A5%E5%85%B7%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">以下是工具工作的详细步骤说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PMF%E8%BD%ACMP4"><span class="toc-number">2.1.</span> <span class="toc-text">PMF转MP4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP4%E8%BD%ACPMF"><span class="toc-number">2.2.</span> <span class="toc-text">MP4转PMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">GUI工具的实现</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#PMFaerie%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">PMFaerie的简单说明：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8B%E6%98%AF%E5%B7%A5%E5%85%B7%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">以下是工具工作的详细步骤说明：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PMF%E8%BD%ACMP4"><span class="toc-number">2.1.</span> <span class="toc-text">PMF转MP4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MP4%E8%BD%ACPMF"><span class="toc-number">2.2.</span> <span class="toc-text">MP4转PMF</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GUI%E5%B7%A5%E5%85%B7%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">GUI工具的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%B6%B3"><span class="toc-number">4.</span> <span class="toc-text">不足</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Umd-Stream-Composer-2-5%E7%89%88%E4%B8%BA%E4%BE%8B"><span class="toc-number">4.1.</span> <span class="toc-text">Umd Stream Composer 2.5版为例</span></a></li></ol></li></ol>
       </div>
     
 
