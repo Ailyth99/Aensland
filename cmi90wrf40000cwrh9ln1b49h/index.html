@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="好的，这是为您整理好的 Markdown 文档。已严格保留了您的原话（包括标点和字间距习惯），插入了图片链接，并补充了少量的 Go 代码说明。  PS2《全职猎人》汉化笔记一、CVT容器分析首先打开镜像，这游戏是CD镜像，BIN+CUE文件。根目录就3个东西，身为游戏主程序的ELF文件SLPM_620.67，以及两个目录。 其中一个是IOP，IOP就是PS2的一颗协处理器（就是PS1 CPU改的）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1">
+<meta property="og:url" content="https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/index.html">
+<meta property="og:site_name" content="Hot Wind Sea Land">
+<meta property="og:description" content="好的，这是为您整理好的 Markdown 文档。已严格保留了您的原话（包括标点和字间距习惯），插入了图片链接，并补充了少量的 Go 代码说明。  PS2《全职猎人》汉化笔记一、CVT容器分析首先打开镜像，这游戏是CD镜像，BIN+CUE文件。根目录就3个东西，身为游戏主程序的ELF文件SLPM_620.67，以及两个目录。 其中一个是IOP，IOP就是PS2的一颗协处理器（就是PS1 CPU改的）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUI1hiYkSBNsI6pTf4b-hUf.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVJ5jZn_V9NBp9_xydXNZfk.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUedxJMx6ZNuJ8TbOotnVtq.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUijjDwP3hOV4kG8bkI3MBx.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsULU_tCVDtC5YH38tvaxBzR.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXlDzbkhzRLWaEbjir_6dzk.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsWEslL4mJhPPLWwDt2kAPIw.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVLcIf5Cv9ClqkUJRxfbq0a.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUP5ohfTv9FTLqdtne6stSy.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXFKwyKDvxA_aoucMM-RN_C.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXYUf2naOlH-KUt2wSNxqAo.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsWFARBMJL1Mzo543IOpW4ik.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVAavvvgAxLiql87Gr3wptd.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXgpO6wP9NKI63fRDyAoCaB.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXB_AycDnBEMrt2ZqWpc8FO.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVLT2An2E1JjKysNaeLQvRN.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsX2fLSUVPdO3KAZZKMQVCJo.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVAfYi2pQxF7aAcHYKlLz2e.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVQCvE8NahEzroZJrzINFSn.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXnltm_htxDYY6LSUaAjoBM.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVrgLjLrgJGUY2CBuR2XlCs.png">
+<meta property="article:published_time" content="2025-11-21T15:30:40.000Z">
+<meta property="article:modified_time" content="2025-11-21T15:36:42.911Z">
+<meta property="article:author" content="delphis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUI1hiYkSBNsI6pTf4b-hUf.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/Aensland/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/Aensland/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/Aensland/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/Aensland/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/Aensland/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/Aensland/cmf4x52jp0000pgrh9hw1hgvm/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&text=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&is_video=false&description=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&body=Check out this article: https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&name=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&t=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PS2%E3%80%8A%E5%85%A8%E8%81%8C%E7%8C%8E%E4%BA%BA%E3%80%8B%E6%B1%89%E5%8C%96%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">PS2《全职猎人》汉化笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CVT%E5%AE%B9%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">一、CVT容器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E5%BA%93%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">二、字库贴图的初步分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A7%A3%E6%9E%90RH2%E7%BB%93%E6%9E%84%E4%B8%8E%E8%B0%83%E8%89%B2%E6%9D%BF"><span class="toc-number">1.3.</span> <span class="toc-text">三、解析RH2结构与调色板</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">delphis</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2025-11-21T15:30:40.000Z" class="dt-published" itemprop="datePublished">2025-11-21</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p>好的，这是为您整理好的 Markdown 文档。已严格保留了您的原话（包括标点和字间距习惯），插入了图片链接，并补充了少量的 Go 代码说明。</p>
+<hr>
+<h1 id="PS2《全职猎人》汉化笔记"><a href="#PS2《全职猎人》汉化笔记" class="headerlink" title="PS2《全职猎人》汉化笔记"></a>PS2《全职猎人》汉化笔记</h1><h2 id="一、CVT容器分析"><a href="#一、CVT容器分析" class="headerlink" title="一、CVT容器分析"></a>一、CVT容器分析</h2><p>首先打开镜像，这游戏是CD镜像，BIN+CUE文件。根目录就3个东西，身为游戏主程序的ELF文件<code>SLPM_620.67</code>，以及两个目录。</p>
+<p>其中一个是<code>IOP</code>，IOP就是PS2的一颗协处理器（就是PS1 CPU改的）。IOP目录里面都是<code>irx</code>文件，这些都是和主机系统交互的，比如用于处理手柄，记忆卡这类功能的程序，每个游戏都有，汉化绝大部分情况不需要管他们。</p>
+<p>另一个目录<code>CDIMG</code>，就是游戏的资源文件了。而且没有打包，几百个文件散落其中，都是扩展名为<code>.CVT</code>的文件。把CVT拖到16进制编辑器，可以看到头部都是KONAMI的声明信息，然后填充了一堆00。</p>
+<p>每个CVT都一样，<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUI1hiYkSBNsI6pTf4b-hUf.png"><br>到<code>0x330</code>处开始有数据：<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVJ5jZn_V9NBp9_xydXNZfk.png"></p>
+<p>这个<code>itemt12.rh2</code>，看起来是一个文件名，然后继续放后面翻，还能看到其他的类似的文件名，说明这个CVT大概率是一个容器，装了多个子文件。包括各种<code>rh2</code>，<code>bin</code>，<code>grp</code>（看数据特征是音频文件），文件也放在bin里面，但最多的还是<code>rh2</code>。</p>
+<p>在每个CVT的尾部，还有开发人员的名字，还可以看到一个叫做<code>PSXCVT.EXE</code>的程序名字，然后上网搜一下这个名字，根本没有任何信息，估计是KONAMI当年内部使用的CVT打包工具的名字。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUedxJMx6ZNuJ8TbOotnVtq.png"></p>
+<p>这么看CVT就是一个不算复杂的档案容器文件，数据没有压缩，也没有找到文件索引表，估计是一口气全部读入，相关资源都放在一起，比如<code>FONT.CVT</code>,<code>TITLE.CVT</code>。</p>
+<p>为了提取这些文件，我们编写了一个简单的扫描逻辑：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Go代码片段：扫描CVT中的RH2文件头</span></span><br><span class="line"><span class="comment">// 扫描以16字节对齐的 &quot;RH2\x00&quot; 标记</span></span><br><span class="line"><span class="keyword">if</span> <span class="type">string</span>(data[pos:pos+<span class="number">4</span>]) == <span class="string">&quot;RH2\x00&quot;</span> &#123;</span><br><span class="line">    <span class="comment">// 读取RH2文件大小（位于偏移0x08）</span></span><br><span class="line">    size1 := <span class="type">int64</span>(binary.LittleEndian.Uint32(data[pos+<span class="number">8</span>:]))</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 提取RH2数据块</span></span><br><span class="line">    rh2Data := data[pos : pos+size1]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 自动搜寻前方的文件名（倒序查找）</span></span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、字库贴图的初步分析"><a href="#二、字库贴图的初步分析" class="headerlink" title="二、字库贴图的初步分析"></a>二、字库贴图的初步分析</h2><p><code>FONT.CVT</code>一看就和字库有关，用16进制打开看，数据确实有某种位图的特征，而且里面有4个rh2文件。可以打开一个叫nana的小工具（CrystalTile2也行），查看能不能看到图像的轮廓，如果是，就能确认它是图像文件。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUijjDwP3hOV4kG8bkI3MBx.png"><br>FONT里面可以看到类似文字排列的轮廓，还能辨识出几个字，所以这就是字库贴图没跑了，也可以确认，RH2应该是某种贴图格式，FONT.CVT里面能找到4个RH2文件名：<code>all.rh2</code>,<code>__font01~03.rh2</code>。</p>
+<p>这个时候，打开PCSX2模拟器的贴图转储，能看到字库图像，有三张，两个<code>512*512</code>，一个<code>512*256</code>。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsULU_tCVDtC5YH38tvaxBzR.png"><br>如果是贴图，那字库这种颜色少的大概率会用4bpp索引图节省资源，即只有16色（2的4次方），带一个16色调色板，然后每个字节可以储存两个像素的颜色，这么一算，就能算出<code>512*512</code> 4BPP位图的大小，是<code>(512×512) / 2 = 131072</code>字节，换成KB就是131KB左右。</p>
+<p>在编辑器里面找到<code>__font01.rh2</code>开头的地方，<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXlDzbkhzRLWaEbjir_6dzk.png"><br>然后一直复制到下一个RH2（<code>__font02.rh2</code>）。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsWEslL4mJhPPLWwDt2kAPIw.png"><br>复制的字节数是<strong>133648</strong>，和之前计算的字节数差不了太多，所以就确认字库贴图就是4bpp。</p>
+<p>然后尝试按照4bpp，<code>512*512</code>的方式，打开CT2进行图像查看，能不能看到啥<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVLcIf5Cv9ClqkUJRxfbq0a.png"><br>结果只能看到一坨坨挤在一起的字，和模拟器转储的贴图差的太多了。</p>
+<p>然后继续调整宽度，在<strong>128</strong>的时候，能看到比较正常的字的轮廓了。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUP5ohfTv9FTLqdtne6stSy.png"><br>反复测试，只有128宽的时候能看到正常一点的字，那这个图可能就是这个宽度。</p>
+<p>由于PS2的调色板像素格式和GBA的不一样，所以在CT2看不到贴图真正的样子。只能自己弄测试工具，首先，还是先去尝试找调色板。</p>
+<hr>
+<h2 id="三、解析RH2结构与调色板"><a href="#三、解析RH2结构与调色板" class="headerlink" title="三、解析RH2结构与调色板"></a>三、解析RH2结构与调色板</h2><p>继续观察FONT.CVT的16进制数据，可以看到那种上下排列的QRS..<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXFKwyKDvxA_aoucMM-RN_C.png"></p>
+<p>这个就是PS2位图的一个标识，很多游戏的贴图都有，但是具体是啥不知道。暂时把这个叫做<strong>QRS标识</strong>，一搜索，有几十个QRS标识…这么搞太麻烦了，应该想办法，单独抽一个<code>font.rh2</code>出来分析。</p>
+<p>那个RH2应该是rh2贴图格式的标头魔法字(magic number)，文件就从这开始，一般图像头部都会储存高宽等参数信息，然后对着头部信息慢慢看有没啥线索，跳过四字节00，有一个值：<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXYUf2naOlH-KUt2wSNxqAo.png"><br>PS2一般是小端序，换过来就是<code>0x020A10</code>，换成十进制是<strong>133648</strong>，这个值和之前复制的<code>font01.rh2</code>字节数一模一样，所以暂且就确定，这个字段记录的就是这个rh2的容量。</p>
+<p>现在就可以单独分析rh2了，它的头好像非常长，有上千字节。</p>
+<p>第一个QRS标识到<code>0x3B0</code>才出现，第二个就在它下面不远，隔得很近。但是在头部看了半天没看到像调色板的东西，PS2贴图的调色板一般就是4字节一组数据出现，最后一字节都是<code>0x80</code>，很好认。但这个文件没找到这种。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsWFARBMJL1Mzo543IOpW4ik.png"><br>这时候再回去观察模拟器导出来的字库贴图，有几个按钮的字符：<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVAavvvgAxLiql87Gr3wptd.png"><br>这个不同于黑白色，这种没啥辨识度的颜色数据，我尝试确认方块的那种粉红色，是<code>#e77b94</code>这个色值。</p>
+<p>然后去编辑器里搜索<code>e77b94</code>，并没有结果，试了另外两个按钮的颜色也一样。那会不会是，这种图像的调色板，不是8888呢？</p>
+<p>我曾经在汉化PS2的《蚊》的时候，注意到这游戏使用的一些贴图，调色板不是8888，而是<strong>ABGR1555</strong>，正好之前弄个一个转换器。把<code>e77b94</code>输入，字体图像肯定是不透明的，alpha值写最大的FF，得到结果<code>FFA9</code>。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXgpO6wP9NKI63fRDyAoCaB.png"><br>然后进编辑器一搜，真能搜到<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXB_AycDnBEMrt2ZqWpc8FO.png"><br>尝试了另外按钮的颜色，也能搜到，所以破案了，这格式的调色板的像素格式是<strong>ABGR1555</strong>，两个字节表示一个像素的颜色，而不是常见的8888。这种格式的调色板，表示16色需要32字节。</p>
+<p>最终确认，从<code>0x3F0</code>开始32字节就是<code>font01.rh2</code>的调色板数据。而且调色板位置就在头两个QRS之间。</p>
+<p>我们编写了对应的解码函数：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Go代码片段：解码ABGR1555颜色</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">decodeABGR1555</span><span class="params">(v <span class="type">uint16</span>)</span></span> color.RGBA &#123;</span><br><span class="line">    r := v &amp; <span class="number">0x1F</span></span><br><span class="line">    g := (v &gt;&gt; <span class="number">5</span>) &amp; <span class="number">0x1F</span></span><br><span class="line">    b := (v &gt;&gt; <span class="number">10</span>) &amp; <span class="number">0x1F</span></span><br><span class="line">    a := (v &gt;&gt; <span class="number">15</span>) &amp; <span class="number">0x1</span></span><br><span class="line">    <span class="comment">// 5bit转8bit，Alpha 0/1转0/255</span></span><br><span class="line">    <span class="keyword">return</span> color.RGBA&#123;scale5to8(r), scale5to8(g), scale5to8(b), alphaPs2ToPc(a)&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>于是写程序，按照128px宽度，找到的调色板位置正确了，那颜色肯定没问题（图太长了就放一段）：<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVLT2An2E1JjKysNaeLQvRN.png"><br>这看起来完全是乱的，怎么看都像是一个个单独的<code>128*128</code>的块粘在一起。</p>
+<p>这种也不是没见过，之前汉化《红忍》，里面的图像格式就是64宽度，然后超级长的长条图。不过和红忍不同的是，这游戏的rh2里面的每个图似乎是分块单独储存，而不是红忍那种，连续一张图的完整数据，再二次切割重组为正常图像。</p>
+<p>rh2切都不用切，本来就是单独一个个储存，而且他们的头部都有QRS。而且R那一行正好储存的观察出来的块大小<code>128(0x80)*128</code>。<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsX2fLSUVPdO3KAZZKMQVCJo.png"><br>这么看，这个rh2文件17个qrs头，其中16个图块，那猜测第一个qrs表示是属于调色板的。</p>
+<p>尝试导出16个图块，手动拼图，就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2 3 4</span><br><span class="line">5 6 7 8</span><br><span class="line">……</span><br></pre></td></tr></table></figure>
+<p>这样的线性顺序就能拼好：<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVAfYi2pQxF7aAcHYKlLz2e.png"><br>于是基本可以搞定4bpp的贴图了。但还有个问题，RH2的总高宽<code>512*512</code>应该也存在头部，不然程序怎么知道如何拼图，又是对着头部一顿找，<code>0x56</code>那里就像是宽和高<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVQCvE8NahEzroZJrzINFSn.png"></p>
+<p>而且找来<code>font03.rh2</code>确认，从PCSX2贴图转储可以得知3号贴图的大小是<code>512*256</code>，<code>0x56</code>的数据完全符合，所以完全的贴图的尺寸就可以确认了<br><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXnltm_htxDYY6LSUaAjoBM.png"></p>
+<p>写程序又转换了几个，主要是自动读取QRS标识，获取图块数量，再读取R行的小图块大小，然后根据<code>0x56</code>读取到的总大小进行拼图，效果不错</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Go代码片段：拼图逻辑</span></span><br><span class="line"><span class="comment">// 根据总宽度w和图块宽度tw计算列数</span></span><br><span class="line">cols := w / tw</span><br><span class="line"><span class="comment">// 计算当前图块的坐标</span></span><br><span class="line">tx := (ti % cols) * tw</span><br><span class="line">ty := (ti / cols) * th</span><br><span class="line"><span class="comment">// 将图块绘制到大图的(tx, ty)位置</span></span><br><span class="line">img.Set(tx+px, ty+py, color)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVrgLjLrgJGUY2CBuR2XlCs.png"></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/Aensland/">Home</a></li>
+        
+          <li><a href="/Aensland/about/">About</a></li>
+        
+          <li><a href="/Aensland/archives/">Writing</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PS2%E3%80%8A%E5%85%A8%E8%81%8C%E7%8C%8E%E4%BA%BA%E3%80%8B%E6%B1%89%E5%8C%96%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">PS2《全职猎人》汉化笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CVT%E5%AE%B9%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">一、CVT容器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E5%BA%93%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">二、字库贴图的初步分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A7%A3%E6%9E%90RH2%E7%BB%93%E6%9E%84%E4%B8%8E%E8%B0%83%E8%89%B2%E6%9D%BF"><span class="toc-number">1.3.</span> <span class="toc-text">三、解析RH2结构与调色板</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&text=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&is_video=false&description=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&body=Check out this article: https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&name=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&t=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    1886-2099
+    delphis
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/Aensland/">Home</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/Aensland/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="http://github.com/Ailyth99">Projects</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/Aensland/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
