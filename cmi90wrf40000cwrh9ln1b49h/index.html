@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="description" content="一、CVT容器分析首先打开镜像，这游戏是CD镜像，BIN+CUE文件。根目录就3个东西，身为游戏主程序的ELF文件SLPM_620.67，以及两个目录。 其中一个是IOP，IOP就是PS2的一颗协处理器（就是PS1 CPU改的）。IOP目录里面都是irx文件，这些都是和主机系统交互的，比如用于处理手柄，记忆卡这类功能的程序，每个游戏都有，汉化绝大部分情况不需要管他们。 另一个目录CDIMG，就是游">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1">
+<meta property="og:title" content="PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理">
 <meta property="og:url" content="https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/index.html">
 <meta property="og:site_name" content="Hot Wind Sea Land">
 <meta property="og:description" content="一、CVT容器分析首先打开镜像，这游戏是CD镜像，BIN+CUE文件。根目录就3个东西，身为游戏主程序的ELF文件SLPM_620.67，以及两个目录。 其中一个是IOP，IOP就是PS2的一颗协处理器（就是PS1 CPU改的）。IOP目录里面都是irx文件，这些都是和主机系统交互的，比如用于处理手柄，记忆卡这类功能的程序，每个游戏都有，汉化绝大部分情况不需要管他们。 另一个目录CDIMG，就是游">
@@ -34,8 +34,27 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVQCvE8NahEzroZJrzINFSn.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsXnltm_htxDYY6LSUaAjoBM.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVrgLjLrgJGUY2CBuR2XlCs.png">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsXvwIxL5OBATYVqZ_z2uARD.png?raw=true">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsXIzlpDf7BOxa7UNdn_6_Za.png?raw=true">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsUYrp_-05pCUrMg1JAyqj_z.png?raw=true">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsW8IeCINl1ONJrnXmyysTiv.png?raw=true">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsWvGKA2JnRMjZj2zkfemLwG.png?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsVhfotmITdPhrLPBeGpnuMa.png">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsVXf3rs7lZKVrb7v1S5e0sH.png?raw=true">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsUK_n3NkZxPa6yopk01Q0hB.png?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsUf9A0YkqZBX6jze7XZoO0x.png">
+<meta property="og:image" content="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsW55jhyspRPcazH7BIf2J20.png?raw=true">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsVfMckFo1pJV7GB1slkPsNR.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsUT1Ex-2M5BlZLhbDc8LDfu.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsWjoCcu9mhGMb9Rrl1UB7F-.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsX48frv659MkbFt6YyC0xYy.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsWbn5gLJRZBI7aticI_ANPg.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsXllhJ13MZC-7HRFS_2M9Vg.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsVu9c1gSANMfIiLWLO56JTB.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsWAv0KEVwxPMo306XiomECx.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsXiC9UjF-JDRr2HfKF9dSc3.png">
 <meta property="article:published_time" content="2025-11-21T15:30:40.000Z">
-<meta property="article:modified_time" content="2025-11-21T15:38:25.846Z">
+<meta property="article:modified_time" content="2025-11-21T16:11:00.440Z">
 <meta property="article:author" content="delphis">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsUI1hiYkSBNsI6pTf4b-hUf.png">
@@ -58,7 +77,7 @@
       
     
     <!-- title -->
-    <title>PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1</title>
+    <title>PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理</title>
     <!-- async scripts -->
     <!-- Google Analytics -->
 
@@ -118,23 +137,23 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&text=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&is_video=false&description=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&body=Check out this article: https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&name=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&t=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&text=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&is_video=false&description=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理&body=Check out this article: https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&name=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&t=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     
     
       <div id="toc">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CVT%E5%AE%B9%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">一、CVT容器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E5%BA%93%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">二、字库贴图的初步分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A7%A3%E6%9E%90RH2%E7%BB%93%E6%9E%84%E4%B8%8E%E8%B0%83%E8%89%B2%E6%9D%BF"><span class="toc-number">3.</span> <span class="toc-text">三、解析RH2结构与调色板</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CVT%E5%AE%B9%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">一、CVT容器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E5%BA%93%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">二、字库贴图的初步分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A7%A3%E6%9E%90RH2%E7%BB%93%E6%9E%84%E4%B8%8E%E8%B0%83%E8%89%B2%E6%9D%BF"><span class="toc-number">3.</span> <span class="toc-text">三、解析RH2结构与调色板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%818BPP-%E8%B4%B4%E5%9B%BE%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">四、8BPP 贴图分析</span></a></li></ol>
       </div>
     
   </span>
@@ -147,7 +166,7 @@
   <header>
     
     <h1 class="posttitle p-name" itemprop="name headline">
-        PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1
+        PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理
     </h1>
 
 
@@ -214,6 +233,69 @@
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Go代码片段：拼图逻辑</span></span><br><span class="line"><span class="comment">// 根据总宽度w和图块宽度tw计算列数</span></span><br><span class="line">cols := w / tw</span><br><span class="line"><span class="comment">// 计算当前图块的坐标</span></span><br><span class="line">tx := (ti % cols) * tw</span><br><span class="line">ty := (ti / cols) * th</span><br><span class="line"><span class="comment">// 将图块绘制到大图的(tx, ty)位置</span></span><br><span class="line">img.Set(tx+px, ty+py, color)</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/model/AgAABTQ4jsVrgLjLrgJGUY2CBuR2XlCs.png"></p>
+<h2 id="四、8BPP-贴图分析"><a href="#四、8BPP-贴图分析" class="headerlink" title="四、8BPP 贴图分析"></a>四、8BPP 贴图分析</h2><p>正常转换的4BPP贴图，很少因为游戏大部分都是8BPP的，它们的调色板数据是512字节（256色）。</p>
+<p>从之前正常转换的一些4BPP图像可以看出，那个<code>APALWAYS.CVT</code>可能包含了菜单贴图。那就找个图做测试8BPP贴图处理，选的<code>sta_0010.rh2</code>，看名字似乎是status，状态菜单。</p>
+<p>打开hex视图，RH2的4BPP和8BPP结构大同小异，只是调色板长度变化明显。</p>
+<p>按理说，调色板从<code>0x270</code>开始，</p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsXvwIxL5OBATYVqZ_z2uARD.png?raw=true"></p>
+<p>就是QRS那一坨下面，上面那个<code>0x2080</code>是表示8BPP图像的标识符，和4BPP的不一样，可能程序就靠这个辨识BPP类型。</p>
+<p>尝试转换了一个小图块（没用正确的调色板像素格式，不过无妨，只看轮廓），然后是一坨混乱的像素</p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsXIzlpDf7BOxa7UNdn_6_Za.png?raw=true"></p>
+<p>遇事不决测试PS2的一种8BPP重排（这里添加代码）：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// PS2 8bpp Swizzle (重排)</span></span><br><span class="line"><span class="comment">// PS2纹理重排算法，通过复杂的位运算打乱像素顺序以优化显存读写</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ps2Swizzle</span><span class="params">(data []<span class="type">byte</span>, w, h <span class="type">int</span>, swizzle <span class="type">bool</span>)</span></span> []<span class="type">byte</span> &#123;</span><br><span class="line">    out := <span class="built_in">make</span>([]<span class="type">byte</span>, w*h)</span><br><span class="line">    <span class="keyword">for</span> y := <span class="number">0</span>; y &lt; h; y++ &#123;</span><br><span class="line">        <span class="keyword">for</span> x := <span class="number">0</span>; x &lt; w; x++ &#123;</span><br><span class="line">            <span class="comment">// 计算block索引 (16x4 blocks)</span></span><br><span class="line">            blk := (y &amp; (^<span class="number">0xF</span>)) * w</span><br><span class="line">            blk += (x &amp; (^<span class="number">0xF</span>)) * <span class="number">2</span></span><br><span class="line">            <span class="comment">// ... (列计算逻辑，具体看源码)</span></span><br><span class="line">            <span class="comment">// 交换像素位置</span></span><br><span class="line">            <span class="keyword">if</span> swizzle &#123;</span><br><span class="line">                out[sid] = data[y*w+x]</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                out[y*w+x] = data[sid]</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>得到正确画面（无视颜色问题，后面再调）</p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsUYrp_-05pCUrMg1JAyqj_z.png?raw=true"></p>
+<p>然后是老办法，从PCSX2转出的PNG找到这张图</p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsW8IeCINl1ONJrnXmyysTiv.png?raw=true"></p>
+<p>这游戏的调色板都是16位的，至少4BPP是这样…… 而且看这个<code>sta_0010.rh2</code>也确实是8BPP的256色的两字节调色板，一共512字节。</p>
+<p>试试之前的方法，打开PCSX转储的贴图，寻找大片连续出现的颜色，这里拿那个问号试试，颜色是三个224，换成16进制就是<code>E0E0E0</code></p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsWvGKA2JnRMjZj2zkfemLwG.png?raw=true"></p>
+<p>继续转换颜色值：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsVhfotmITdPhrLPBeGpnuMa.png"></p>
+<p>结果是<code>9CF3</code>（无视alpha位），然后去看原始调色板数据，第二个颜色就是<code>9CF3</code></p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsVXf3rs7lZKVrb7v1S5e0sH.png?raw=true"></p>
+<p>然后试了下彭丝脸上大片出现的肉色，换成BGR555是<code>3CDF</code>：<br>也有</p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsUK_n3NkZxPa6yopk01Q0hB.png?raw=true"></p>
+<p>再试试网页转换器那个ABGR1555格式的调色板解析方法。<br>对上颜色了，图像显示正常。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsUf9A0YkqZBX6jze7XZoO0x.png"></p>
+<p>那么，可以从<code>0x56</code>那里得知这个RH2贴图的尺寸是<code>256*256</code>，已知测试的这个图是<code>128*64</code>，正好是QRS那个R行记录的尺寸的两倍，R行是记录的<code>64(0x40)*32(0x20)</code>，实际的图块尺寸是这个值乘以2。</p>
+<p><img src="https://github.com/EiliaLan/zhazuevaluator/blob/main/.streamlit/AgAABTQ4jsW55jhyspRPcazH7BIf2J20.png?raw=true"></p>
+<p>那整个状态菜单贴图的RH2文件有8个小块，大概率拼图方法就是</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">3 4</span><br><span class="line">5 6</span><br><span class="line">7 8</span><br></pre></td></tr></table></figure>
+<p>就是宽2块，高4块这样拼，合计拼成<code>256*256</code>。就这么测试一下。写个简易转换工具试试，非常完美：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsVfMckFo1pJV7GB1slkPsNR.png"></p>
+<p>试着把菜单目录的RH2都转换一下，它们都是256高宽的图</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsUT1Ex-2M5BlZLhbDc8LDfu.png"></p>
+<p>大部分没问题，主要就是注意调色板格式，以及要进行一次unswizzle才行。</p>
+<p>不过，也有个意外，就是这个图：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsWjoCcu9mhGMb9Rrl1UB7F-.png"></p>
+<p>这是游戏的血条那些框框的贴图，颜色明显不对。</p>
+<p>然后打开hex编辑器看这个RH2文件数据，结构还是一样的，一个主QRS标识，一堆小块，结构不对的话，之前的程序是没法正常拼图的，而且图像轮廓没有问题，就是颜色有问题。</p>
+<p>但我一看调色板，也是非常意外，这游戏，居然也有RGBA8888(因为PS2的A是电脑的一半，这种也叫RGBX8888)，一个像素四字节，整个调色板1024字节，这KONAMI怎么这么多花样……：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsX48frv659MkbFt6YyC0xYy.png"></p>
+<p>测试一下使用RGBX8888构建第一个小块图：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsWbn5gLJRZBI7aticI_ANPg.png"></p>
+<p>颜色有点问题，这种弄多了就知道，还是swizzle过的原因，加上8BPP的调色板反重排(放palCSM1代码)：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Go代码片段：CSM1 调色板重排</span></span><br><span class="line"><span class="comment">// 这种重排常见于 PS2 调色板数据，它每32字节进行一次交换</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">palCSM1</span><span class="params">(entries []<span class="type">uint16</span>)</span></span> []<span class="type">uint16</span> &#123;</span><br><span class="line">    out := <span class="built_in">make</span>([]<span class="type">uint16</span>, <span class="number">0</span>, <span class="built_in">len</span>(entries))</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">256</span>; i += <span class="number">32</span> &#123;</span><br><span class="line">        out = <span class="built_in">append</span>(out, entries[i:i+<span class="number">8</span>]...)</span><br><span class="line">        out = <span class="built_in">append</span>(out, entries[i+<span class="number">16</span>:i+<span class="number">24</span>]...) <span class="comment">// 注意这里交换了顺序</span></span><br><span class="line">        out = <span class="built_in">append</span>(out, entries[i+<span class="number">8</span>:i+<span class="number">16</span>]...)</span><br><span class="line">        out = <span class="built_in">append</span>(out, entries[i+<span class="number">24</span>:i+<span class="number">32</span>]...)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> out</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsXllhJ13MZC-7HRFS_2M9Vg.png"></p>
+<p>然后就正常了。把小块图拼起来：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsVu9c1gSANMfIiLWLO56JTB.png"></p>
+<p>但是，如何让程序自动判断是1555还是8888呢？ RH2头部应该有字段记录了这个，只能对比着仔细找。</p>
+<p>看了半天觉得就是调色板上面一行那里决定的，</p>
+<ul>
+<li>普通的4BPP是<code>0x0280</code></li>
+<li>8BPP是<code>0x2080</code></li>
+<li>而这种8888调色板的是<code>0x4080</code></li>
+</ul>
+<p>然后4bpp，8bpp ABGR1555, 8BPP RGBA(X) 8888这三种都能转换了，制作了一个rh2到png的转换器，我转换了绝大部分rh2贴图。</p>
+<p>但是还没完，居然还有没见过的rh2类型，这是<code>OP_01.CVT</code>里面的几个rh2，看名字是开场动画使用的。打开HEX编辑器一看：</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsWAv0KEVwxPMo306XiomECx.png"></p>
+<p>也有QRS标识，但是只有16个，也就是没有调色板的那个QRS，这说明没调色板，是直接色的位图。</p>
+<p><code>0x3C0</code>开始直接储存每个像素的颜色数据，看到的像素都是两字节重复的，比如<code>32B1 32B1</code>。所以是16位的位图，即拿两字节表示一个像素，记录其颜色，可能是某种RGBA5551，或者RGB565之类的。</p>
+<p>实际测试了一下，用之前的现成的函数ABGR1555，画面正常。这种非索引图都没有swizzle，所以很好处理。宽高就是R行头8字节，不够要和之前8BPP的图一样乘以2。</p>
+<p><img src="https://raw.githubusercontent.com/EiliaLan/zhazuevaluator/refs/heads/main/.streamlit/AgAABTQ4jsXiC9UjF-JDRr2HfKF9dSc3.png"></p>
 
   </div>
 </article>
@@ -241,23 +323,23 @@
     
     
       <div id="toc-footer" style="display: none">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CVT%E5%AE%B9%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">一、CVT容器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E5%BA%93%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">二、字库贴图的初步分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A7%A3%E6%9E%90RH2%E7%BB%93%E6%9E%84%E4%B8%8E%E8%B0%83%E8%89%B2%E6%9D%BF"><span class="toc-number">3.</span> <span class="toc-text">三、解析RH2结构与调色板</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81CVT%E5%AE%B9%E5%99%A8%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">一、CVT容器分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AD%97%E5%BA%93%E8%B4%B4%E5%9B%BE%E7%9A%84%E5%88%9D%E6%AD%A5%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">二、字库贴图的初步分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E8%A7%A3%E6%9E%90RH2%E7%BB%93%E6%9E%84%E4%B8%8E%E8%B0%83%E8%89%B2%E6%9D%BF"><span class="toc-number">3.</span> <span class="toc-text">三、解析RH2结构与调色板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%818BPP-%E8%B4%B4%E5%9B%BE%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">四、8BPP 贴图分析</span></a></li></ol>
       </div>
     
 
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&text=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&is_video=false&description=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&body=Check out this article: https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&name=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&t=PS2《全职猎人 龙脉的祭坛》汉化笔记 - 1"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&text=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&is_video=false&description=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理&body=Check out this article: https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&title=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&name=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://ailyth99.github.io/Aensland/cmi90wrf40000cwrh9ln1b49h/&t=PS2《全职猎人 龙脉的祭坛》汉化笔记 - RH2贴图处理"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
